@@ -1,0 +1,130 @@
+# Null values are calibration/discovery dependencies, never fabricated defaults.
+protocol:
+  version: aet-v1
+  population: pilot
+  source_hashes: {}
+  preregistration_hash: null
+host:
+  id: null
+  role: primary
+  kernel_lock: null
+  toolchain_lock: null
+  cpus: null
+  placement: shared
+  privilege: root
+  cgroup_root: /sys/fs/cgroup
+  restoration_manifest: null
+  required_features: [btf, sched_switch, sys_enter, sys_exit, ringbuf, cgroup_v2]
+workload:
+  family: cpu
+  workers: 2
+  compute_repeats: null
+  checksum: splitmix64-v1
+  io_bytes: 4096
+  drift_io_bytes: 16384
+  working_set_bytes: 67108864
+  drift: false
+  drift_at_s: 120
+  warmup_s: 30
+  measure_s: 240
+  drain_s: 5
+  cooldown_s: 15
+  publish_ms: 100
+  sample_units_every: 0
+  truth_aggregation: true
+  input_seed: 200000
+  min_free_disk_bytes: 107374182400
+  disk_headroom: 0.20
+  max_stage_bytes: 1073741824
+  max_ram_fraction: 0.20
+incidents:
+  kind: futex
+  durations_ms: [10, 25, 50, 100, 250, 500, 1000]
+  first_anchor_s: 15
+  spacing_s: 15
+  slots: 14
+  jitter_s: 2
+  timeout_ms: 1
+  background: low
+  background_duty: 0.50
+  background_period_ms: 10
+  max_overshoot_ms: 20
+  overlap_rule: invalidate
+sentinel:
+  hook: sched/sched_switch
+  target_roles: [worker0, worker1, futex0, futex1, contention]
+  bin_ms: 5
+  bins: 2048
+  lag_ms: 10
+  missing: gap-low
+detail:
+  hooks: [raw_syscalls/sys_enter, raw_syscalls/sys_exit]
+  allowlist: [pread64, futex, sched_yield, clock_nanosleep]
+  abi: x86_64
+  inflight_entries: 8192
+  target_entries: 128
+  config_layout: generation32-threshold32
+  probabilities: [0.0, 0.1, 1.0]
+  record_version: 1
+  record_bytes: 64
+  ring_bytes: 8388608
+  drain_grace_ms: 20
+  queue_bytes: 8388608
+  sink: tmpfs
+  eligible_rate_bound: 50000
+  calibrated_peak_rate: null
+  sink_bytes_per_second: null
+  overflow: count
+detector:
+  model: null
+  transform: log1p
+  scale_floor: 0.10
+  threshold_candidates: [4, 6, 8, 12]
+  threshold: null
+  period_ms: 100
+  recovery_ms: 500
+  alert_close_ms: 500
+  training_min_s: 600
+  max_normal_alerts_per_minute: 1
+  signal: max-bin
+  missing: uncertain-low
+controller:
+  mechanism: GATE
+  initial: LOW
+  dwell_ms: 250
+  budget: 0.05
+  model: null
+  utilization_bands: [0.5, 0.8]
+  supervisor: true
+  hysteresis: true
+  fallback: worst-training-ucl
+  transition_horizon_s: 1
+  transition_policy: flag-unresolved
+experiment:
+  policies: [NONE, SENT, FIX_LOW_GATE, FIX_MED, FIX_HIGH, ADAPT_GATE, ADAPT_SWITCH]
+  workloads: [cpu, io]
+  backgrounds: [low, high]
+  drifts: [false, true]
+  blocks: 12
+  max_blocks: 30
+  seed: 200000
+  quiet_measure_s: 1200
+  quiet_repetitions: 5
+  retries: 2
+  vm_steal_threshold: 0.02
+  external_cpu_threshold: 0.05
+  noise_fraction: 0.10
+  max_batch_hours: 6
+  include_second_host: true
+  resource_sampling: true
+analysis:
+  endpoints: [throughput_loss, recall, on_time_recall, capture, useful1, useful10, delay, loss, stability, model_error]
+  match_after_s: 1
+  useful_pairs: [1, 10]
+  phase_rule: separate-drift
+  bootstrap_seed: 741911
+  bootstrap_draws: 10000
+  confidence: 0.95
+  paired_unit: block
+  multiplicity: holm
+  missing: retain-and-account

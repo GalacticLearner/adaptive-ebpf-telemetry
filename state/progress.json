@@ -1,0 +1,1619 @@
+{
+  "current_phase": 1,
+  "gates": {
+    "G0": {
+      "reason": "Scaffolding/requirements mapped; mandatory v4 source audit missing",
+      "status": "blocked"
+    },
+    "G1": {
+      "reason": "Linux host explicitly unavailable; portable fallback complete",
+      "status": "blocked"
+    },
+    "G2": {
+      "reason": "Kernel/application empirical acceptance evidence unavailable; synthetic checks do not satisfy this gate",
+      "status": "blocked"
+    },
+    "G3": {
+      "reason": "Kernel/application empirical acceptance evidence unavailable; synthetic checks do not satisfy this gate",
+      "status": "blocked"
+    },
+    "G4": {
+      "reason": "Kernel/application empirical acceptance evidence unavailable; synthetic checks do not satisfy this gate",
+      "status": "blocked"
+    },
+    "G5": {
+      "reason": "Kernel/application empirical acceptance evidence unavailable; synthetic checks do not satisfy this gate",
+      "status": "blocked"
+    },
+    "G6": {
+      "reason": "Kernel/application empirical acceptance evidence unavailable; synthetic checks do not satisfy this gate",
+      "status": "blocked"
+    },
+    "G7": {
+      "reason": "Kernel/application empirical acceptance evidence unavailable; synthetic checks do not satisfy this gate",
+      "status": "blocked"
+    },
+    "G8": {
+      "reason": "Kernel/application empirical acceptance evidence unavailable; synthetic checks do not satisfy this gate",
+      "status": "blocked"
+    },
+    "G9": {
+      "reason": "Kernel/application empirical acceptance evidence unavailable; synthetic checks do not satisfy this gate",
+      "status": "blocked"
+    }
+  },
+  "protocol_version": "aet-v1",
+  "schema_version": 1,
+  "source_commit": null,
+  "steps": {
+    "P0.1": {
+      "artifacts": [
+        "context/manifest.json",
+        "configs/protocol.yaml",
+        "configs/parameter_registry.json",
+        "requirements_traceability.md",
+        "research/claims.md",
+        "research/evidence_access.csv"
+      ],
+      "blocker": "Missing v4 review/full-text audit",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [],
+      "evidence_hash": "4766e3bc898ec13813cccc6d294e704b38750049a7e201d9f48b7e45e9c448c1",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Inventory and preserve context"
+    },
+    "P0.2": {
+      "artifacts": [
+        "context/manifest.json",
+        "configs/protocol.yaml",
+        "configs/parameter_registry.json",
+        "requirements_traceability.md",
+        "research/claims.md",
+        "research/evidence_access.csv"
+      ],
+      "blocker": null,
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [],
+      "evidence_hash": "4766e3bc898ec13813cccc6d294e704b38750049a7e201d9f48b7e45e9c448c1",
+      "finished_at": "2026-10-30T18:46:38.904624+00:00",
+      "limitations": [
+        "Done means the independent software/draft deliverable only; no kernel/performance success implied"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "done",
+      "title": "Write the protocol draft"
+    },
+    "P0.3": {
+      "artifacts": [
+        "context/manifest.json",
+        "configs/protocol.yaml",
+        "configs/parameter_registry.json",
+        "requirements_traceability.md",
+        "research/claims.md",
+        "research/evidence_access.csv"
+      ],
+      "blocker": "Missing v4 review/full-text audit",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [],
+      "evidence_hash": "4766e3bc898ec13813cccc6d294e704b38750049a7e201d9f48b7e45e9c448c1",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Bound novelty claims"
+    },
+    "P0.4": {
+      "artifacts": [
+        "context/manifest.json",
+        "configs/protocol.yaml",
+        "configs/parameter_registry.json",
+        "requirements_traceability.md",
+        "research/claims.md",
+        "research/evidence_access.csv"
+      ],
+      "blocker": null,
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [],
+      "evidence_hash": "4766e3bc898ec13813cccc6d294e704b38750049a7e201d9f48b7e45e9c448c1",
+      "finished_at": "2026-10-30T18:46:38.904624+00:00",
+      "limitations": [
+        "Done means the independent software/draft deliverable only; no kernel/performance success implied"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "done",
+      "title": "Establish reproducibility commands"
+    },
+    "P1.1": {
+      "artifacts": [
+        "state/host.json",
+        "artifact/toolchain.lock.json",
+        "artifact/REPRODUCE.md",
+        "state/evidence/unprivileged-final.json",
+        "state/evidence/c-compile-final.json"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P0.1",
+        "P0.2",
+        "P0.3",
+        "P0.4"
+      ],
+      "evidence_hash": "8e492c6d55e67f453e93450c4a701b30a7754b5f827fbcf962f5f0e0270b9f4d",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Doctor"
+    },
+    "P1.2": {
+      "artifacts": [
+        "state/host.json",
+        "artifact/toolchain.lock.json",
+        "artifact/REPRODUCE.md",
+        "state/evidence/unprivileged-final.json",
+        "state/evidence/c-compile-final.json"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P0.1",
+        "P0.2",
+        "P0.3",
+        "P0.4"
+      ],
+      "evidence_hash": "8e492c6d55e67f453e93450c4a701b30a7754b5f827fbcf962f5f0e0270b9f4d",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Reproducible build"
+    },
+    "P1.3": {
+      "artifacts": [
+        "state/host.json",
+        "artifact/toolchain.lock.json",
+        "artifact/REPRODUCE.md",
+        "state/evidence/unprivileged-final.json",
+        "state/evidence/c-compile-final.json"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P0.1",
+        "P0.2",
+        "P0.3",
+        "P0.4"
+      ],
+      "evidence_hash": "8e492c6d55e67f453e93450c4a701b30a7754b5f827fbcf962f5f0e0270b9f4d",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Host setup and restoration"
+    },
+    "P1.4": {
+      "artifacts": [
+        "state/host.json",
+        "artifact/toolchain.lock.json",
+        "artifact/REPRODUCE.md",
+        "state/evidence/unprivileged-final.json",
+        "state/evidence/c-compile-final.json"
+      ],
+      "blocker": null,
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P0.1",
+        "P0.2",
+        "P0.3",
+        "P0.4"
+      ],
+      "evidence_hash": "8e492c6d55e67f453e93450c4a701b30a7754b5f827fbcf962f5f0e0270b9f4d",
+      "finished_at": "2026-10-30T18:46:38.904624+00:00",
+      "limitations": [
+        "Done means the independent software/draft deliverable only; no kernel/performance success implied"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "done",
+      "title": "Unprivileged fallback"
+    },
+    "P2.1": {
+      "artifacts": [
+        "src/workloads/workload.c",
+        "src/workloads/known_count.c",
+        "runner/trial.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P1.1",
+        "P1.2",
+        "P1.3",
+        "P1.4"
+      ],
+      "evidence_hash": "fc8bb4dca2c48a9e57fa63eeda810985de2def28c537a9477bc9ba350d6bc69a",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Benchmark correctness"
+    },
+    "P2.2": {
+      "artifacts": [
+        "src/workloads/workload.c",
+        "src/workloads/known_count.c",
+        "runner/trial.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P1.1",
+        "P1.2",
+        "P1.3",
+        "P1.4"
+      ],
+      "evidence_hash": "fc8bb4dca2c48a9e57fa63eeda810985de2def28c537a9477bc9ba350d6bc69a",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Incident engine"
+    },
+    "P2.3": {
+      "artifacts": [
+        "src/workloads/workload.c",
+        "src/workloads/known_count.c",
+        "runner/trial.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P1.1",
+        "P1.2",
+        "P1.3",
+        "P1.4"
+      ],
+      "evidence_hash": "fc8bb4dca2c48a9e57fa63eeda810985de2def28c537a9477bc9ba350d6bc69a",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Ground truth"
+    },
+    "P2.4": {
+      "artifacts": [
+        "src/workloads/workload.c",
+        "src/workloads/known_count.c",
+        "runner/trial.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P1.1",
+        "P1.2",
+        "P1.3",
+        "P1.4"
+      ],
+      "evidence_hash": "fc8bb4dca2c48a9e57fa63eeda810985de2def28c537a9477bc9ba350d6bc69a",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "No-telemetry harness"
+    },
+    "P2.5": {
+      "artifacts": [
+        "src/workloads/workload.c",
+        "src/workloads/known_count.c",
+        "runner/trial.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P1.1",
+        "P1.2",
+        "P1.3",
+        "P1.4"
+      ],
+      "evidence_hash": "fc8bb4dca2c48a9e57fa63eeda810985de2def28c537a9477bc9ba350d6bc69a",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Measurement perturbation"
+    },
+    "P3.1": {
+      "artifacts": [
+        "src/bpf/sentinel.bpf.c",
+        "src/bpf/detail.bpf.c",
+        "src/common/wire.h",
+        "src/agent/sink.c",
+        "analysis/wire.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P2.1",
+        "P2.2",
+        "P2.3",
+        "P2.4",
+        "P2.5"
+      ],
+      "evidence_hash": "933933fd7a04fae7e998b3d4174cd9fa78a6c24d16a0134db8acb6f1b12de046",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Sentinel"
+    },
+    "P3.2": {
+      "artifacts": [
+        "src/bpf/sentinel.bpf.c",
+        "src/bpf/detail.bpf.c",
+        "src/common/wire.h",
+        "src/agent/sink.c",
+        "analysis/wire.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P2.1",
+        "P2.2",
+        "P2.3",
+        "P2.4",
+        "P2.5"
+      ],
+      "evidence_hash": "933933fd7a04fae7e998b3d4174cd9fa78a6c24d16a0134db8acb6f1b12de046",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Paired detail"
+    },
+    "P3.3": {
+      "artifacts": [
+        "src/bpf/sentinel.bpf.c",
+        "src/bpf/detail.bpf.c",
+        "src/common/wire.h",
+        "src/agent/sink.c",
+        "analysis/wire.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P2.1",
+        "P2.2",
+        "P2.3",
+        "P2.4",
+        "P2.5"
+      ],
+      "evidence_hash": "933933fd7a04fae7e998b3d4174cd9fa78a6c24d16a0134db8acb6f1b12de046",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Collector and sink"
+    },
+    "P3.4": {
+      "artifacts": [
+        "src/bpf/sentinel.bpf.c",
+        "src/bpf/detail.bpf.c",
+        "src/common/wire.h",
+        "src/agent/sink.c",
+        "analysis/wire.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P2.1",
+        "P2.2",
+        "P2.3",
+        "P2.4",
+        "P2.5"
+      ],
+      "evidence_hash": "933933fd7a04fae7e998b3d4174cd9fa78a6c24d16a0134db8acb6f1b12de046",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Count truth test"
+    },
+    "P3.5": {
+      "artifacts": [
+        "src/bpf/sentinel.bpf.c",
+        "src/bpf/detail.bpf.c",
+        "src/common/wire.h",
+        "src/agent/sink.c",
+        "analysis/wire.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P2.1",
+        "P2.2",
+        "P2.3",
+        "P2.4",
+        "P2.5"
+      ],
+      "evidence_hash": "933933fd7a04fae7e998b3d4174cd9fa78a6c24d16a0134db8acb6f1b12de046",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Race and failure tests"
+    },
+    "P3.6": {
+      "artifacts": [
+        "src/bpf/sentinel.bpf.c",
+        "src/bpf/detail.bpf.c",
+        "src/common/wire.h",
+        "src/agent/sink.c",
+        "analysis/wire.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P2.1",
+        "P2.2",
+        "P2.3",
+        "P2.4",
+        "P2.5"
+      ],
+      "evidence_hash": "933933fd7a04fae7e998b3d4174cd9fa78a6c24d16a0134db8acb6f1b12de046",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Cost instrumentation separation"
+    },
+    "P4.1": {
+      "artifacts": [
+        "src/common/policy.c",
+        "src/common/cost.c",
+        "src/agent/main.c",
+        "runner/reference.py",
+        "tests/test_core.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P3.1",
+        "P3.2",
+        "P3.3",
+        "P3.4",
+        "P3.5",
+        "P3.6"
+      ],
+      "evidence_hash": "8470f13da92fe23187af4212f701942bfff7b9a17a4e8f55b9b7ea9099505ed8",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Fixed modes"
+    },
+    "P4.2": {
+      "artifacts": [
+        "src/common/policy.c",
+        "src/common/cost.c",
+        "src/agent/main.c",
+        "runner/reference.py",
+        "tests/test_core.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P3.1",
+        "P3.2",
+        "P3.3",
+        "P3.4",
+        "P3.5",
+        "P3.6"
+      ],
+      "evidence_hash": "8470f13da92fe23187af4212f701942bfff7b9a17a4e8f55b9b7ea9099505ed8",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "GATE/SWITCH lifecycle"
+    },
+    "P4.3": {
+      "artifacts": [
+        "src/common/policy.c",
+        "src/common/cost.c",
+        "src/agent/main.c",
+        "runner/reference.py",
+        "tests/test_core.py"
+      ],
+      "blocker": null,
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P3.1",
+        "P3.2",
+        "P3.3",
+        "P3.4",
+        "P3.5",
+        "P3.6"
+      ],
+      "evidence_hash": "8470f13da92fe23187af4212f701942bfff7b9a17a4e8f55b9b7ea9099505ed8",
+      "finished_at": "2026-10-30T18:46:38.904624+00:00",
+      "limitations": [
+        "Done means the independent software/draft deliverable only; no kernel/performance success implied"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "done",
+      "title": "Detector"
+    },
+    "P4.4": {
+      "artifacts": [
+        "src/common/policy.c",
+        "src/common/cost.c",
+        "src/agent/main.c",
+        "runner/reference.py",
+        "tests/test_core.py"
+      ],
+      "blocker": null,
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P3.1",
+        "P3.2",
+        "P3.3",
+        "P3.4",
+        "P3.5",
+        "P3.6"
+      ],
+      "evidence_hash": "8470f13da92fe23187af4212f701942bfff7b9a17a4e8f55b9b7ea9099505ed8",
+      "finished_at": "2026-10-30T18:46:38.904624+00:00",
+      "limitations": [
+        "Done means the independent software/draft deliverable only; no kernel/performance success implied"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "done",
+      "title": "Controller"
+    },
+    "P4.5": {
+      "artifacts": [
+        "src/common/policy.c",
+        "src/common/cost.c",
+        "src/agent/main.c",
+        "runner/reference.py",
+        "tests/test_core.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P3.1",
+        "P3.2",
+        "P3.3",
+        "P3.4",
+        "P3.5",
+        "P3.6"
+      ],
+      "evidence_hash": "8470f13da92fe23187af4212f701942bfff7b9a17a4e8f55b9b7ea9099505ed8",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Integration"
+    },
+    "P5.1": {
+      "artifacts": [
+        "runner/calibration.py",
+        "runner/calibration_cli.py",
+        "runner/collect.py",
+        "artifact/CALIBRATION.md"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P4.1",
+        "P4.2",
+        "P4.3",
+        "P4.4",
+        "P4.5"
+      ],
+      "evidence_hash": "eaf99c6abc6fd2261cc4b09e433e56082daaedd00e54954be9177e8e3a1d9363",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Rate and storage calibration"
+    },
+    "P5.2": {
+      "artifacts": [
+        "runner/calibration.py",
+        "runner/calibration_cli.py",
+        "runner/collect.py",
+        "artifact/CALIBRATION.md"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P4.1",
+        "P4.2",
+        "P4.3",
+        "P4.4",
+        "P4.5"
+      ],
+      "evidence_hash": "eaf99c6abc6fd2261cc4b09e433e56082daaedd00e54954be9177e8e3a1d9363",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Detector training"
+    },
+    "P5.3": {
+      "artifacts": [
+        "runner/calibration.py",
+        "runner/calibration_cli.py",
+        "runner/collect.py",
+        "artifact/CALIBRATION.md"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P4.1",
+        "P4.2",
+        "P4.3",
+        "P4.4",
+        "P4.5"
+      ],
+      "evidence_hash": "eaf99c6abc6fd2261cc4b09e433e56082daaedd00e54954be9177e8e3a1d9363",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Cost tables"
+    },
+    "P5.4": {
+      "artifacts": [
+        "runner/calibration.py",
+        "runner/calibration_cli.py",
+        "runner/collect.py",
+        "artifact/CALIBRATION.md"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P4.1",
+        "P4.2",
+        "P4.3",
+        "P4.4",
+        "P4.5"
+      ],
+      "evidence_hash": "eaf99c6abc6fd2261cc4b09e433e56082daaedd00e54954be9177e8e3a1d9363",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Component attribution"
+    },
+    "P5.5": {
+      "artifacts": [
+        "runner/calibration.py",
+        "runner/calibration_cli.py",
+        "runner/collect.py",
+        "artifact/CALIBRATION.md"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P4.1",
+        "P4.2",
+        "P4.3",
+        "P4.4",
+        "P4.5"
+      ],
+      "evidence_hash": "eaf99c6abc6fd2261cc4b09e433e56082daaedd00e54954be9177e8e3a1d9363",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Precision/power pilot"
+    },
+    "P5.6": {
+      "artifacts": [
+        "runner/calibration.py",
+        "runner/calibration_cli.py",
+        "runner/collect.py",
+        "artifact/CALIBRATION.md"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P4.1",
+        "P4.2",
+        "P4.3",
+        "P4.4",
+        "P4.5"
+      ],
+      "evidence_hash": "eaf99c6abc6fd2261cc4b09e433e56082daaedd00e54954be9177e8e3a1d9363",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Bounded feasibility decision"
+    },
+    "P6.1": {
+      "artifacts": [
+        "runner/matrix.py",
+        "runner/campaign.py",
+        "runner/freeze.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P5.1",
+        "P5.2",
+        "P5.3",
+        "P5.4",
+        "P5.5",
+        "P5.6"
+      ],
+      "evidence_hash": "a73e3ca99e082dfec5a36f3c3a8a941457f5491c9799b5a572775f991bbc029a",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Preregistration freeze"
+    },
+    "P6.2": {
+      "artifacts": [
+        "runner/matrix.py",
+        "runner/campaign.py",
+        "runner/freeze.py"
+      ],
+      "blocker": null,
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P5.1",
+        "P5.2",
+        "P5.3",
+        "P5.4",
+        "P5.5",
+        "P5.6"
+      ],
+      "evidence_hash": "a73e3ca99e082dfec5a36f3c3a8a941457f5491c9799b5a572775f991bbc029a",
+      "finished_at": "2026-10-30T18:46:38.904624+00:00",
+      "limitations": [
+        "Done means the independent software/draft deliverable only; no kernel/performance success implied"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "done",
+      "title": "Matrix validation"
+    },
+    "P6.3": {
+      "artifacts": [
+        "runner/matrix.py",
+        "runner/campaign.py",
+        "runner/freeze.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P5.1",
+        "P5.2",
+        "P5.3",
+        "P5.4",
+        "P5.5",
+        "P5.6"
+      ],
+      "evidence_hash": "a73e3ca99e082dfec5a36f3c3a8a941457f5491c9799b5a572775f991bbc029a",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Primary campaign"
+    },
+    "P6.4": {
+      "artifacts": [
+        "runner/matrix.py",
+        "runner/campaign.py",
+        "runner/freeze.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P5.1",
+        "P5.2",
+        "P5.3",
+        "P5.4",
+        "P5.5",
+        "P5.6"
+      ],
+      "evidence_hash": "a73e3ca99e082dfec5a36f3c3a8a941457f5491c9799b5a572775f991bbc029a",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Supplementary campaign"
+    },
+    "P6.5": {
+      "artifacts": [
+        "runner/matrix.py",
+        "runner/campaign.py",
+        "runner/freeze.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P5.1",
+        "P5.2",
+        "P5.3",
+        "P5.4",
+        "P5.5",
+        "P5.6"
+      ],
+      "evidence_hash": "a73e3ca99e082dfec5a36f3c3a8a941457f5491c9799b5a572775f991bbc029a",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Robustness"
+    },
+    "P6.6": {
+      "artifacts": [
+        "runner/matrix.py",
+        "runner/campaign.py",
+        "runner/freeze.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P5.1",
+        "P5.2",
+        "P5.3",
+        "P5.4",
+        "P5.5",
+        "P5.6"
+      ],
+      "evidence_hash": "a73e3ca99e082dfec5a36f3c3a8a941457f5491c9799b5a572775f991bbc029a",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Failure audit"
+    },
+    "P7.1": {
+      "artifacts": [
+        "analysis/validate.py",
+        "analysis/metrics.py",
+        "analysis/stats.py",
+        "analysis/pipeline.py",
+        "analysis/figures.py",
+        "analysis/timeline.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P6.1",
+        "P6.2",
+        "P6.3",
+        "P6.4",
+        "P6.5",
+        "P6.6"
+      ],
+      "evidence_hash": "6e36d20cb6cae14ffb4ee6f37b787383370fbddb19d0922ec72760bdedb57cb5",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Raw validation"
+    },
+    "P7.2": {
+      "artifacts": [
+        "analysis/validate.py",
+        "analysis/metrics.py",
+        "analysis/stats.py",
+        "analysis/pipeline.py",
+        "analysis/figures.py",
+        "analysis/timeline.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P6.1",
+        "P6.2",
+        "P6.3",
+        "P6.4",
+        "P6.5",
+        "P6.6"
+      ],
+      "evidence_hash": "6e36d20cb6cae14ffb4ee6f37b787383370fbddb19d0922ec72760bdedb57cb5",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Metrics"
+    },
+    "P7.3": {
+      "artifacts": [
+        "analysis/validate.py",
+        "analysis/metrics.py",
+        "analysis/stats.py",
+        "analysis/pipeline.py",
+        "analysis/figures.py",
+        "analysis/timeline.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P6.1",
+        "P6.2",
+        "P6.3",
+        "P6.4",
+        "P6.5",
+        "P6.6"
+      ],
+      "evidence_hash": "6e36d20cb6cae14ffb4ee6f37b787383370fbddb19d0922ec72760bdedb57cb5",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Statistical inference"
+    },
+    "P7.4": {
+      "artifacts": [
+        "analysis/validate.py",
+        "analysis/metrics.py",
+        "analysis/stats.py",
+        "analysis/pipeline.py",
+        "analysis/figures.py",
+        "analysis/timeline.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P6.1",
+        "P6.2",
+        "P6.3",
+        "P6.4",
+        "P6.5",
+        "P6.6"
+      ],
+      "evidence_hash": "6e36d20cb6cae14ffb4ee6f37b787383370fbddb19d0922ec72760bdedb57cb5",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Strong-baseline check"
+    },
+    "P7.5": {
+      "artifacts": [
+        "analysis/validate.py",
+        "analysis/metrics.py",
+        "analysis/stats.py",
+        "analysis/pipeline.py",
+        "analysis/figures.py",
+        "analysis/timeline.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P6.1",
+        "P6.2",
+        "P6.3",
+        "P6.4",
+        "P6.5",
+        "P6.6"
+      ],
+      "evidence_hash": "6e36d20cb6cae14ffb4ee6f37b787383370fbddb19d0922ec72760bdedb57cb5",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Robustness and negative cases"
+    },
+    "P7.6": {
+      "artifacts": [
+        "analysis/validate.py",
+        "analysis/metrics.py",
+        "analysis/stats.py",
+        "analysis/pipeline.py",
+        "analysis/figures.py",
+        "analysis/timeline.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P6.1",
+        "P6.2",
+        "P6.3",
+        "P6.4",
+        "P6.5",
+        "P6.6"
+      ],
+      "evidence_hash": "6e36d20cb6cae14ffb4ee6f37b787383370fbddb19d0922ec72760bdedb57cb5",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Scientific decision"
+    },
+    "P8.1": {
+      "artifacts": [
+        "paper/manuscript.md",
+        "paper/references.bib",
+        "paper/claim_evidence.csv",
+        "research/evidence_access.csv"
+      ],
+      "blocker": null,
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P7.1",
+        "P7.2",
+        "P7.3",
+        "P7.4",
+        "P7.5",
+        "P7.6"
+      ],
+      "evidence_hash": "4d25901f6fca0c559673a57d53615138b829854c28ccd29a1fc6c05c071a760a",
+      "finished_at": "2026-10-30T18:46:38.904624+00:00",
+      "limitations": [
+        "Done means the independent software/draft deliverable only; no kernel/performance success implied"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "done",
+      "title": "Write methods first"
+    },
+    "P8.2": {
+      "artifacts": [
+        "paper/manuscript.md",
+        "paper/references.bib",
+        "paper/claim_evidence.csv",
+        "research/evidence_access.csv"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P7.1",
+        "P7.2",
+        "P7.3",
+        "P7.4",
+        "P7.5",
+        "P7.6"
+      ],
+      "evidence_hash": "4d25901f6fca0c559673a57d53615138b829854c28ccd29a1fc6c05c071a760a",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Results and evidence mapping"
+    },
+    "P8.3": {
+      "artifacts": [
+        "paper/manuscript.md",
+        "paper/references.bib",
+        "paper/claim_evidence.csv",
+        "research/evidence_access.csv"
+      ],
+      "blocker": "Missing v4 review/full-text audit",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P7.1",
+        "P7.2",
+        "P7.3",
+        "P7.4",
+        "P7.5",
+        "P7.6"
+      ],
+      "evidence_hash": "4d25901f6fca0c559673a57d53615138b829854c28ccd29a1fc6c05c071a760a",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Prior-art audit"
+    },
+    "P8.4": {
+      "artifacts": [
+        "paper/manuscript.md",
+        "paper/references.bib",
+        "paper/claim_evidence.csv",
+        "research/evidence_access.csv"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P7.1",
+        "P7.2",
+        "P7.3",
+        "P7.4",
+        "P7.5",
+        "P7.6"
+      ],
+      "evidence_hash": "4d25901f6fca0c559673a57d53615138b829854c28ccd29a1fc6c05c071a760a",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Skeptical review"
+    },
+    "P8.5": {
+      "artifacts": [
+        "paper/manuscript.md",
+        "paper/references.bib",
+        "paper/claim_evidence.csv",
+        "research/evidence_access.csv"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P7.1",
+        "P7.2",
+        "P7.3",
+        "P7.4",
+        "P7.5",
+        "P7.6"
+      ],
+      "evidence_hash": "4d25901f6fca0c559673a57d53615138b829854c28ccd29a1fc6c05c071a760a",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Scope final contributions"
+    },
+    "P9.1": {
+      "artifacts": [
+        "artifact/REPRODUCE.md",
+        "runner/package.py",
+        "runner/cleanup.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P8.1",
+        "P8.2",
+        "P8.3",
+        "P8.4",
+        "P8.5"
+      ],
+      "evidence_hash": "e62d6ea146d36ef80b0723dafa7f07b4a237d9481a7be39027ad32be5d9a1555",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Clean build/replay"
+    },
+    "P9.2": {
+      "artifacts": [
+        "artifact/REPRODUCE.md",
+        "runner/package.py",
+        "runner/cleanup.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P8.1",
+        "P8.2",
+        "P8.3",
+        "P8.4",
+        "P8.5"
+      ],
+      "evidence_hash": "e62d6ea146d36ef80b0723dafa7f07b4a237d9481a7be39027ad32be5d9a1555",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Artifact bundle"
+    },
+    "P9.3": {
+      "artifacts": [
+        "artifact/REPRODUCE.md",
+        "runner/package.py",
+        "runner/cleanup.py"
+      ],
+      "blocker": null,
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P8.1",
+        "P8.2",
+        "P8.3",
+        "P8.4",
+        "P8.5"
+      ],
+      "evidence_hash": "e62d6ea146d36ef80b0723dafa7f07b4a237d9481a7be39027ad32be5d9a1555",
+      "finished_at": "2026-10-30T18:46:38.904624+00:00",
+      "limitations": [
+        "Done means the independent software/draft deliverable only; no kernel/performance success implied"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "done",
+      "title": "Reproduction guide"
+    },
+    "P9.4": {
+      "artifacts": [
+        "artifact/REPRODUCE.md",
+        "runner/package.py",
+        "runner/cleanup.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P8.1",
+        "P8.2",
+        "P8.3",
+        "P8.4",
+        "P8.5"
+      ],
+      "evidence_hash": "e62d6ea146d36ef80b0723dafa7f07b4a237d9481a7be39027ad32be5d9a1555",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Restore and verify"
+    },
+    "P9.5": {
+      "artifacts": [
+        "artifact/REPRODUCE.md",
+        "runner/package.py",
+        "runner/cleanup.py"
+      ],
+      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "checks": [
+        "python -m runner test --unprivileged",
+        "portable C/BPF target compile checks",
+        "synthetic sealed-attempt replay"
+      ],
+      "commit": null,
+      "depends_on": [
+        "P8.1",
+        "P8.2",
+        "P8.3",
+        "P8.4",
+        "P8.5"
+      ],
+      "evidence_hash": "e62d6ea146d36ef80b0723dafa7f07b4a237d9481a7be39027ad32be5d9a1555",
+      "finished_at": null,
+      "limitations": [
+        "Sources/checks prepared; real step acceptance evidence is pending"
+      ],
+      "started_at": "2026-10-30T18:46:38.904624+00:00",
+      "status": "blocked",
+      "title": "Final status"
+    }
+  },
+  "updated_at": "2026-10-30T18:46:38.904624+00:00"
+}

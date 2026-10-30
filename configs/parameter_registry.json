@@ -1,0 +1,679 @@
+{
+  "exploratory": "Optional real-device/service workloads require a separate protocol.",
+  "hypotheses": {
+    "H1": "adaptive versus fixed impact/capture frontier",
+    "H2": "GATE versus SWITCH",
+    "H3": "prediction error under held-out drift",
+    "H4": "hysteresis and dwell ablations"
+  },
+  "parameters": [
+    {
+      "classification": "fixed",
+      "draft_value": "aet-v1",
+      "path": "protocol.version"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "pilot",
+      "path": "protocol.population"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": {},
+      "path": "protocol.source_hashes"
+    },
+    {
+      "classification": "calibration-derived",
+      "draft_value": null,
+      "path": "protocol.preregistration_hash"
+    },
+    {
+      "classification": "calibration-derived",
+      "draft_value": null,
+      "path": "host.id"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "primary",
+      "path": "host.role"
+    },
+    {
+      "classification": "calibration-derived",
+      "draft_value": null,
+      "path": "host.kernel_lock"
+    },
+    {
+      "classification": "calibration-derived",
+      "draft_value": null,
+      "path": "host.toolchain_lock"
+    },
+    {
+      "classification": "calibration-derived",
+      "draft_value": null,
+      "path": "host.cpus"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "shared",
+      "path": "host.placement"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "root",
+      "path": "host.privilege"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "/sys/fs/cgroup",
+      "path": "host.cgroup_root"
+    },
+    {
+      "classification": "calibration-derived",
+      "draft_value": null,
+      "path": "host.restoration_manifest"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": [
+        "btf",
+        "sched_switch",
+        "sys_enter",
+        "sys_exit",
+        "ringbuf",
+        "cgroup_v2"
+      ],
+      "path": "host.required_features"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "cpu",
+      "path": "workload.family"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 2,
+      "path": "workload.workers"
+    },
+    {
+      "classification": "calibration-derived",
+      "draft_value": null,
+      "path": "workload.compute_repeats"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "splitmix64-v1",
+      "path": "workload.checksum"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 4096,
+      "path": "workload.io_bytes"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 16384,
+      "path": "workload.drift_io_bytes"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 67108864,
+      "path": "workload.working_set_bytes"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": false,
+      "path": "workload.drift"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 120,
+      "path": "workload.drift_at_s"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 30,
+      "path": "workload.warmup_s"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 240,
+      "path": "workload.measure_s"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 5,
+      "path": "workload.drain_s"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 15,
+      "path": "workload.cooldown_s"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 100,
+      "path": "workload.publish_ms"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 0,
+      "path": "workload.sample_units_every"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": true,
+      "path": "workload.truth_aggregation"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 200000,
+      "path": "workload.input_seed"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 107374182400,
+      "path": "workload.min_free_disk_bytes"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 0.2,
+      "path": "workload.disk_headroom"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 1073741824,
+      "path": "workload.max_stage_bytes"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 0.2,
+      "path": "workload.max_ram_fraction"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "futex",
+      "path": "incidents.kind"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": [
+        10,
+        25,
+        50,
+        100,
+        250,
+        500,
+        1000
+      ],
+      "path": "incidents.durations_ms"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 15,
+      "path": "incidents.first_anchor_s"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 15,
+      "path": "incidents.spacing_s"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 14,
+      "path": "incidents.slots"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 2,
+      "path": "incidents.jitter_s"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 1,
+      "path": "incidents.timeout_ms"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "low",
+      "path": "incidents.background"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 0.5,
+      "path": "incidents.background_duty"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 10,
+      "path": "incidents.background_period_ms"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 20,
+      "path": "incidents.max_overshoot_ms"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "invalidate",
+      "path": "incidents.overlap_rule"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "sched/sched_switch",
+      "path": "sentinel.hook"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": [
+        "worker0",
+        "worker1",
+        "futex0",
+        "futex1",
+        "contention"
+      ],
+      "path": "sentinel.target_roles"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 5,
+      "path": "sentinel.bin_ms"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 2048,
+      "path": "sentinel.bins"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 10,
+      "path": "sentinel.lag_ms"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "gap-low",
+      "path": "sentinel.missing"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": [
+        "raw_syscalls/sys_enter",
+        "raw_syscalls/sys_exit"
+      ],
+      "path": "detail.hooks"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": [
+        "pread64",
+        "futex",
+        "sched_yield",
+        "clock_nanosleep"
+      ],
+      "path": "detail.allowlist"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "x86_64",
+      "path": "detail.abi"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 8192,
+      "path": "detail.inflight_entries"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 128,
+      "path": "detail.target_entries"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "generation32-threshold32",
+      "path": "detail.config_layout"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": [
+        0.0,
+        0.1,
+        1.0
+      ],
+      "path": "detail.probabilities"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 1,
+      "path": "detail.record_version"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 64,
+      "path": "detail.record_bytes"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 8388608,
+      "path": "detail.ring_bytes"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 20,
+      "path": "detail.drain_grace_ms"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 8388608,
+      "path": "detail.queue_bytes"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "tmpfs",
+      "path": "detail.sink"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 50000,
+      "path": "detail.eligible_rate_bound"
+    },
+    {
+      "classification": "calibration-derived",
+      "draft_value": null,
+      "path": "detail.calibrated_peak_rate"
+    },
+    {
+      "classification": "calibration-derived",
+      "draft_value": null,
+      "path": "detail.sink_bytes_per_second"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "count",
+      "path": "detail.overflow"
+    },
+    {
+      "classification": "calibration-derived",
+      "draft_value": null,
+      "path": "detector.model"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "log1p",
+      "path": "detector.transform"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 0.1,
+      "path": "detector.scale_floor"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": [
+        4,
+        6,
+        8,
+        12
+      ],
+      "path": "detector.threshold_candidates"
+    },
+    {
+      "classification": "calibration-derived",
+      "draft_value": null,
+      "path": "detector.threshold"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 100,
+      "path": "detector.period_ms"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 500,
+      "path": "detector.recovery_ms"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 500,
+      "path": "detector.alert_close_ms"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 600,
+      "path": "detector.training_min_s"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 1,
+      "path": "detector.max_normal_alerts_per_minute"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "max-bin",
+      "path": "detector.signal"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "uncertain-low",
+      "path": "detector.missing"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "GATE",
+      "path": "controller.mechanism"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "LOW",
+      "path": "controller.initial"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 250,
+      "path": "controller.dwell_ms"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 0.05,
+      "path": "controller.budget"
+    },
+    {
+      "classification": "calibration-derived",
+      "draft_value": null,
+      "path": "controller.model"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": [
+        0.5,
+        0.8
+      ],
+      "path": "controller.utilization_bands"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": true,
+      "path": "controller.supervisor"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": true,
+      "path": "controller.hysteresis"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "worst-training-ucl",
+      "path": "controller.fallback"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 1,
+      "path": "controller.transition_horizon_s"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "flag-unresolved",
+      "path": "controller.transition_policy"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": [
+        "NONE",
+        "SENT",
+        "FIX_LOW_GATE",
+        "FIX_MED",
+        "FIX_HIGH",
+        "ADAPT_GATE",
+        "ADAPT_SWITCH"
+      ],
+      "path": "experiment.policies"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": [
+        "cpu",
+        "io"
+      ],
+      "path": "experiment.workloads"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": [
+        "low",
+        "high"
+      ],
+      "path": "experiment.backgrounds"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": [
+        false,
+        true
+      ],
+      "path": "experiment.drifts"
+    },
+    {
+      "classification": "calibration-derived",
+      "draft_value": 12,
+      "path": "experiment.blocks"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 30,
+      "path": "experiment.max_blocks"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 200000,
+      "path": "experiment.seed"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 1200,
+      "path": "experiment.quiet_measure_s"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 5,
+      "path": "experiment.quiet_repetitions"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 2,
+      "path": "experiment.retries"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 0.02,
+      "path": "experiment.vm_steal_threshold"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 0.05,
+      "path": "experiment.external_cpu_threshold"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 0.1,
+      "path": "experiment.noise_fraction"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 6,
+      "path": "experiment.max_batch_hours"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": true,
+      "path": "experiment.include_second_host"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": true,
+      "path": "experiment.resource_sampling"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": [
+        "throughput_loss",
+        "recall",
+        "on_time_recall",
+        "capture",
+        "useful1",
+        "useful10",
+        "delay",
+        "loss",
+        "stability",
+        "model_error"
+      ],
+      "path": "analysis.endpoints"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 1,
+      "path": "analysis.match_after_s"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": [
+        1,
+        10
+      ],
+      "path": "analysis.useful_pairs"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "separate-drift",
+      "path": "analysis.phase_rule"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 741911,
+      "path": "analysis.bootstrap_seed"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 10000,
+      "path": "analysis.bootstrap_draws"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": 0.95,
+      "path": "analysis.confidence"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "block",
+      "path": "analysis.paired_unit"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "holm",
+      "path": "analysis.multiplicity"
+    },
+    {
+      "classification": "fixed",
+      "draft_value": "retain-and-account",
+      "path": "analysis.missing"
+    }
+  ],
+  "schema_version": 1
+}

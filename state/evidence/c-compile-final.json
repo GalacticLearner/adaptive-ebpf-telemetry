@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "compiler": "ziglang 0.13.0",
+  "synthetic": false,
+  "kernel_loaded": false,
+  "limitation": "Development declaration/type headers; no real CO-RE load/link/benchmark proof",
+  "checks": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "name": "native-policy",
+        "cmd": ".\\.venv\\Scripts\\python.exe -m ziglang cc -O2 -std=c11 tests/policy_replay.c src/common/policy.c -o build/policy_replay.exe",
+        "chunk_id": "8d8d1f",
+        "wall_time_seconds": 1.9738931,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "name": "native-cost",
+        "cmd": ".\\.venv\\Scripts\\python.exe -m ziglang cc -O2 -std=c11 tests/cost_check.c src/common/cost.c -o build/cost_check.exe",
+        "chunk_id": "1482b9",
+        "wall_time_seconds": 1.8912681,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "name": "linux-workload",
+        "cmd": ".\\.venv\\Scripts\\python.exe -m ziglang cc -target x86_64-linux-musl -O2 -std=gnu11 -Wall -Wextra -Werror -Wno-misleading-indentation -pthread -c src/workloads/workload.c -o build/workload.check.o",
+        "chunk_id": "f5aab0",
+        "wall_time_seconds": 14.3253583,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "name": "linux-known-count",
+        "cmd": ".\\.venv\\Scripts\\python.exe -m ziglang cc -target x86_64-linux-musl -O2 -std=gnu11 -Wall -Wextra -Werror -pthread -c src/workloads/known_count.c -o build/known_count.check.o",
+        "chunk_id": "2d110a",
+        "wall_time_seconds": 5.6684641,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "name": "linux-sink",
+        "cmd": ".\\.venv\\Scripts\\python.exe -m ziglang cc -target x86_64-linux-musl -O2 -std=gnu11 -Wall -Wextra -Werror -pthread -c src/agent/sink.c -o build/sink.check.o",
+        "chunk_id": "9d1991",
+        "wall_time_seconds": 6.8598223,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "name": "linux-agent",
+        "cmd": ".\\.venv\\Scripts\\python.exe -m ziglang cc -target x86_64-linux-musl -O2 -std=gnu11 -Wall -Wextra -Werror -Wno-misleading-indentation -pthread -Ibuild/check-include -c src/agent/main.c -o build/agent.check.o",
+        "chunk_id": "933541",
+        "wall_time_seconds": 22.2795466,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "name": "bpf-detail",
+        "cmd": ".\\.venv\\Scripts\\python.exe -m ziglang cc -target bpfel-freestanding -mcpu=v3 -O2 -g -Ibuild/check-include -I.venv/Lib/site-packages/ziglang/lib/libc/include/any-linux-any -c src/bpf/detail.bpf.c -o build/detail.bpf.check.o",
+        "chunk_id": "7ea744",
+        "wall_time_seconds": 11.7598225,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "name": "bpf-sentinel",
+        "cmd": ".\\.venv\\Scripts\\python.exe -m ziglang cc -target bpfel-freestanding -mcpu=v3 -O2 -g -Ibuild/check-include -I.venv/Lib/site-packages/ziglang/lib/libc/include/any-linux-any -c src/bpf/sentinel.bpf.c -o build/sentinel.bpf.check.o",
+        "chunk_id": "ed62f0",
+        "wall_time_seconds": 8.7464092,
+        "exit_code": 0,
+        "original_token_count": 0,
+        "output": ""
+      }
+    }
+  ]
+}

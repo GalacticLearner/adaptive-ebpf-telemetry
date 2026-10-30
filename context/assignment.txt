@@ -1,0 +1,89 @@
+RESEARCH ASSIGNMENT
+Assignment 4: Adaptive eBPF Telemetry with an Explicit Overhead Budget
+Observe more when needed, stay quiet when the system is healthy
+
+Course
+Operating Systems
+Core area
+Linux kernel observability / eBPF
+Research output
+Reproducible experimental study and short-paper-style report
+Project Summary
+Design an adaptive observability controller that changes eBPF sampling or aggregation intensity according to workload state and a declared overhead budget. The publishable contribution is a controlled study of the trade-off between detection quality, event loss, CPU overhead, and adaptation delay.
+1. Introduction and Scientific Motivation
+Kernel telemetry is valuable during an incident but can itself consume CPU, memory, and bandwidth. Collecting every event continuously may be unnecessary during healthy periods, while aggressive sampling can miss short-lived anomalies. A practical OS observability system should make its overhead explicit and adapt its measurement intensity without silently sacrificing detection quality.
+eBPF provides kernel-side programs, maps, and user-space control paths suitable for building such a system [1]. The assignment asks students to treat the observer as a resource-constrained system and quantify the measurement-versus-overhead trade-off rather than simply maximizing event collection.
+2. Problem Statement
+Implement an adaptive eBPF telemetry pipeline that switches among at least three collection modes (low, medium, high) based on a defined trigger, while maintaining a target overhead budget. Compare it with fixed-rate collection and determine whether adaptation improves anomaly detection per unit overhead.
+3. Related Work and Scientific Basis
+Linux kernel BPF documentation describes maps, program types, verifier constraints, and user-space interaction [1].
+Tracing attachment options and program types determine which events can be observed and at what points in execution [5, 6].
+Fixed-rate sampling and always-on tracing provide natural baselines. The research gap for this assignment is a transparent, reproducible control policy evaluated jointly on overhead and detection quality, including the risk of missing brief anomalies during low-intensity operation.
+Scientific basis and testable hypothesis
+H1: Adaptive collection can maintain useful anomaly-detection quality at lower overhead than fixed high-intensity tracing. H2: Hysteresis and dwell time reduce controller oscillation without excessive detection delay.
+4. Objectives
+Build a workload that alternates between normal and anomalous phases, such as CPU contention, short bursts of context switching, or a controlled latency spike.
+Implement three telemetry modes using supported sampling, filtering, event selection, or aggregation changes; clearly document what each mode captures.
+Develop an adaptive controller based on a low-cost signal, threshold with hysteresis, and minimum dwell time to avoid rapid mode oscillation.
+Compare fixed-low, fixed-medium, fixed-high, and adaptive collection under the same workload seeds.
+Quantify detection delay, missed events, false alarms, overhead, and adaptation stability.
+Evaluate whether the controller remains effective under workload drift and a brief anomaly that begins and ends between control intervals.
+5. Proposed Methodology
+Define an overhead budget in advance, such as a maximum relative throughput loss or CPU utilization increase. The exact target should be justified for the test machine.
+Implement a simple low-cost always-on signal and a controller that escalates telemetry when a trigger crosses a threshold; use hysteresis to de-escalate only after sustained recovery.
+Use eBPF maps for aggregation where possible and a ring/perf buffer for selected event streaming. Measure lost records and map contention if available.
+Generate normal and anomalous intervals with randomized onset times. Keep a ground-truth event log from the workload generator.
+Compare adaptive and fixed policies over identical traces and seeds. Include a sensitivity analysis for thresholds, dwell time, and sampling rate.
+6. Evaluation Mechanism and Experimental Design
+Baselines: no telemetry, fixed-low, fixed-medium, fixed-high, and adaptive policy.
+Metrics: anomaly precision/recall, detection delay, missed-event rate, false alarms per hour, CPU overhead, throughput/latency impact, memory use, dropped events, and mode-switch frequency.
+Test conditions: short and long anomalies, low and high background load, multiple workload classes, and at least one drift condition.
+Statistical design: repeat each condition at least 5 times where feasible; report confidence intervals and full parameter settings.
+Ablations: remove hysteresis, remove dwell time, change controller signal, and vary budget target.
+Success criteria: the adaptive policy should meet its declared overhead budget and improve detection-quality-per-overhead over at least one fixed baseline without hiding its failure cases.
+7. Deliverables
+Adaptive controller, eBPF programs, workload generator, and reproducible scripts.
+Overhead accounting methodology and raw result tables.
+Plots for overhead versus detection quality, detection delay, mode transitions, and anomaly-duration sensitivity.
+Paper-style report including controller design, experimental protocol, negative results, and limitations.
+8. Threats to Validity, Safety, and Limitations
+The controller itself adds overhead and may oscillate; measure controller cost and use hysteresis.
+Changing attachment points or event sets can change what is detected; define mode semantics precisely.
+A policy tuned on one anomaly pattern may overfit; reserve unseen patterns for final evaluation.
+9. Suggested 8-Week Execution Plan
+Timeline
+Milestone
+Week 1
+Read kernel/eBPF references; define hypothesis, workload, metrics, and target kernel.
+Week 2
+Build baseline workload and measurement harness; verify repeatability without eBPF.
+Weeks 3–4
+Implement eBPF instrumentation and user-space collector; validate event correctness.
+Week 5
+Run pilot experiments, estimate overhead, fix event loss and identity-correlation issues.
+Week 6
+Run the full factorial/repeated-run evaluation and ablations.
+Week 7
+Analyze results, generate figures, and rerun anomalies or unexpected findings.
+Week 8
+Write the report, package code/data/configuration, and conduct a reproducibility check.
+10. Minimum Reproducibility Checklist
+Record distribution, kernel release/commit, CPU model/core count, RAM, storage, compiler, libbpf/BCC/bpftrace versions, and relevant kernel configuration.
+Keep source code, workload parameters, seeds, raw output, analysis scripts, and exact commands under version control.
+Separate tuning runs from final evaluation; never report only the best run.
+Report negative results, dropped events, failed trials, and instrumentation overhead.
+Do not collect payloads, credentials, or private user data. Use a disposable VM or authorized lab machine; do not test scheduler policies on production systems.
+11. References and Starting Points
+[1] Linux Kernel Documentation. BPF Documentation. https://www.kernel.org/doc/html/latest/bpf/index.html — Primary technical reference for eBPF program types, verifier, maps, loading, and debugging.
+[2] Linux Kernel Documentation. Extensible Scheduler Class (sched_ext). https://docs.kernel.org/scheduler/sched-ext.html — Primary reference for programmable BPF schedulers, safe fallback behavior, and configuration.
+[3] sched-ext project. Overview. https://sched-ext.com/docs/OVERVIEW — Motivation for scheduler experimentation and application-specific scheduling policies.
+[4] sched-ext project. Scheduler examples. https://sched-ext.com/docs/scheds — Examples of sched_ext policies that can serve as baselines.
+[5] eBPF Docs. BPF program types. https://docs.ebpf.io/linux/program-type/ — Reference for tracepoint, kprobe, tracing, and other program types.
+[6] eBPF Docs. BPF tracing program type. https://docs.ebpf.io/linux/program-type/BPF_PROG_TYPE_TRACING/ — Reference for tracing attachments such as fentry and their role in observability.
+Citation note: These are technical starting points, not an exhaustive literature review. Before claiming novelty, students must search recent SOSP, OSDI, EuroSys, ATC, ASPLOS, Linux Plumbers Conference, and eBPF/sched_ext publications, then add at least 5 directly relevant peer-reviewed papers and clearly distinguish implemented facts from hypotheses.
+12. Publication Potential: What Would Make This More Than a Demo?
+A precise research question and falsifiable hypotheses rather than a feature checklist.
+A fair baseline comparison, repeated experiments, confidence intervals, and meaningful ablations.
+A result that is useful beyond one machine or one workload, or a clearly characterized boundary where it works.
+A transparent account of overhead, limitations, negative findings, and a runnable artifact.
+A novelty claim supported by a current literature search; publication is a possibility, not a guaranteed outcome.

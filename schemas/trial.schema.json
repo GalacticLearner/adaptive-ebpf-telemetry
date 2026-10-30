@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "baseline_trial": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "block_id": {
+      "type": "string"
+    },
+    "cell_id": {
+      "type": "string"
+    },
+    "policy": {
+      "type": "string"
+    },
+    "position": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "scenario": {
+      "type": "object"
+    },
+    "seeds": {
+      "type": "object"
+    },
+    "status": {
+      "type": "string"
+    },
+    "trial_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "cell_id",
+    "block_id",
+    "trial_id",
+    "position",
+    "policy",
+    "scenario",
+    "seeds",
+    "baseline_trial",
+    "status"
+  ],
+  "type": "object"
+}

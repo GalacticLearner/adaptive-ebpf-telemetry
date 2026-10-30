@@ -1,0 +1,10 @@
+source,primary_url,access_checked_utc,status,boundary,remaining_work
+SMCO,https://www.fsl.cs.sunysb.edu/ssw/files/Download/smco.pdf,2026-10-30,author full text retrieved,Monitoring with user-specified target overhead predates this project,Recheck exact empirical finding after real results
+QVM,https://files.sri.inf.ethz.ch/website/papers/oopsla08.pdf,2026-10-30,author full text retrieved,Overhead manager and monitoring accuracy trade-off predate this project,Recheck evaluation against final scope
+Magnani,https://iris.polito.it/handle/11583/2972688,2026-10-30,institutional record and author PDF accessible,Adaptive eBPF network monitoring and control plane already exist,Complete design/evaluation comparison before claim freeze
+eInfer,https://doi.org/10.1145/3748355.3748372,2026-10-30,DOI access denied 403,Plan identifies runtime-adaptive fine-grained eBPF tracing,Full text and metadata remain unresolved
+Snowflakes,https://jtpaulo.github.io/assets/files/2025/snowflakes-ebpf25-cmachado-presentation.pdf,2026-10-30,author presentation found; DOI access denied 403,Performance fidelity and resource comparison precedes this study,Read full paper; do not conflate presentation with full evaluation
+Ran,https://doi.org/10.1109/ACCESS.2026.3658370,2026-10-30,DOI retrieval unavailable,Plan identifies adaptive sensing and hook orchestration,Verify full text and exact claims; retain access limitation
+Naas,https://cheops-workshop.github.io/talks2026/cheops26-naas.pdf,2026-10-30,author full text and institutional publication record retrieved,Component costs and event-rate dependence are prior art,Recheck exact interaction against measured result
+MooKernel,https://doi.org/10.1145/3672197.3673431,2026-10-30,DOI retrieval unavailable,Plan identifies it as a required boundary source,Full text and precise metadata remain unresolved
+Hindsight,https://www.usenix.org/conference/nsdi23/presentation/zhang-lei,2026-10-30,official proceedings description and BibTeX retrieved,Retroactive distributed tracing differs from transport-only ringbuf,Read full evaluation before final related-work audit

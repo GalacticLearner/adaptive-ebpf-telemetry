@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "agent_ready": {
+      "type": "object"
+    },
+    "build_hashes": {
+      "type": "object"
+    },
+    "cgroup_memory_peak": {
+      "type": "object"
+    },
+    "clock": {
+      "const": "CLOCK_MONOTONIC"
+    },
+    "code": {
+      "type": "object"
+    },
+    "config_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "epoch_ns": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "exit": {
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "finish": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "host": {
+      "type": "object"
+    },
+    "membership": {
+      "type": "object"
+    },
+    "model_hashes": {
+      "type": "object"
+    },
+    "parked": {
+      "type": "object"
+    },
+    "policy": {
+      "type": "string"
+    },
+    "population": {
+      "enum": [
+        "synthetic",
+        "calibration",
+        "pilot",
+        "confirmatory",
+        "robustness"
+      ]
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "run_uuid": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "start": {
+      "type": "string"
+    },
+    "stats_enabled": {
+      "type": "boolean"
+    },
+    "synthetic": {
+      "type": "boolean"
+    },
+    "trial": {
+      "type": "object"
+    },
+    "valid": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "run_uuid",
+    "population",
+    "synthetic",
+    "protocol_version",
+    "config_hash",
+    "code",
+    "trial",
+    "host",
+    "policy",
+    "model_hashes",
+    "clock",
+    "stats_enabled",
+    "start",
+    "finish",
+    "exit",
+    "valid"
+  ],
+  "type": "object"
+}

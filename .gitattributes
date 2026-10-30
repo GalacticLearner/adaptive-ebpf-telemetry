@@ -1,0 +1,8 @@
+* text=auto eol=lf
+# Preserve supplied specification documents byte-for-byte, including original newlines.
+context/** -text
+research/** -text
+*.docx -text
+*.png -text
+*.pdf -text
+*.gz -text

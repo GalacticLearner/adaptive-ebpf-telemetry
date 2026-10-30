@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "abandoned": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "completed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "component": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "consumed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "eligible": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "emitted": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "exit_without_selected": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "insert_failed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "ledger_ok": {
+      "type": "boolean"
+    },
+    "malformed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "pending": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "rejected": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "replaced": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "reserve_failed": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "selected": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "sink_bytes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "sink_drop": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "sink_error": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "sink_flush_ns": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "stats_enabled": {
+      "type": "boolean"
+    },
+    "undrained": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "written": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "eligible",
+    "selected",
+    "rejected",
+    "insert_failed",
+    "replaced",
+    "malformed",
+    "exit_without_selected",
+    "completed",
+    "reserve_failed",
+    "emitted",
+    "abandoned",
+    "pending",
+    "consumed",
+    "sink_drop",
+    "written",
+    "undrained",
+    "sink_bytes",
+    "sink_flush_ns",
+    "sink_error",
+    "component",
+    "schema_version",
+    "ledger_ok",
+    "stats_enabled"
+  ],
+  "type": "object"
+}

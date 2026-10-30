@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "eligible_calls": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "end_ns": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "episode_id": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "helpers": {
+      "items": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "additionalProperties": false,
+        "properties": {
+          "calls": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "checksum": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "errors": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "first_ns": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "interrupted": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "last_ns": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "role": {
+            "type": "string"
+          },
+          "tid": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "waits": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "wakes": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "role",
+          "tid",
+          "first_ns",
+          "last_ns",
+          "calls",
+          "waits",
+          "wakes",
+          "errors",
+          "interrupted",
+          "checksum"
+        ],
+        "type": "object"
+      },
+      "maxItems": 2,
+      "minItems": 1,
+      "type": "array"
+    },
+    "intended_ns": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "kind": {
+      "enum": [
+        "futex",
+        "cpu"
+      ]
+    },
+    "nominal_ms": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "start_ns": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "type": {
+      "const": "episode"
+    },
+    "valid": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "type",
+    "episode_id",
+    "kind",
+    "nominal_ms",
+    "intended_ns",
+    "start_ns",
+    "end_ns",
+    "eligible_calls",
+    "valid",
+    "helpers"
+  ],
+  "type": "object"
+}

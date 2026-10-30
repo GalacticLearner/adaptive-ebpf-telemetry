@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "attempts": {
+      "type": "array"
+    },
+    "comparisons": {
+      "type": "array"
+    },
+    "hypotheses": {
+      "type": "object"
+    },
+    "input_hashes": {
+      "type": "object"
+    },
+    "missing": {
+      "type": "array"
+    },
+    "protocol_version": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "synthetic": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "protocol_version",
+    "synthetic",
+    "input_hashes",
+    "attempts",
+    "comparisons",
+    "missing",
+    "hypotheses"
+  ],
+  "type": "object"
+}

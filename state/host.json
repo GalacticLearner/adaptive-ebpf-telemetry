@@ -1,0 +1,49 @@
+{
+  "blockers": [
+    "Linux tracing host unavailable; no BPF feature/load/attach evidence"
+  ],
+  "clock": "CLOCK_MONOTONIC",
+  "cpu_count": 14,
+  "disk": {
+    "free": 359288651776,
+    "total": 510473007104,
+    "used": 151184355328
+  },
+  "features": {},
+  "functional_ready": false,
+  "host": "Efanio-OmniBook",
+  "kernel": "11",
+  "machine": "AMD64",
+  "observed_at": "2026-10-30T18:44:42.515853+00:00",
+  "performance_ready": false,
+  "privileged_smoke_passed": false,
+  "python": "3.14.8",
+  "schema_version": 1,
+  "system": "Windows",
+  "tools": {
+    "bpftool": null,
+    "cc": null,
+    "clang": null,
+    "git": {
+      "argv": [
+        "C:\\Program Files\\Git\\cmd\\git.EXE",
+        "--version"
+      ],
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "git version 2.56.0.windows.1\n"
+    },
+    "make": null,
+    "pkg-config": null
+  },
+  "topology": [],
+  "wsl": {
+    "argv": [
+      "wsl",
+      "--status"
+    ],
+    "returncode": 50,
+    "stderr": "The Windows Subsystem for Linux is not installed. You can install by running 'wsl.exe --install'.\n\n\nFor more information please visit https://aka.ms/wslinstall\n\n\n",
+    "stdout": ""
+  }
+}

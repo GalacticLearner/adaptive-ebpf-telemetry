@@ -1,0 +1,28 @@
+{
+  "missing": [
+    "novelty_review_v3.md",
+    "novelty_review_v4.md",
+    "adaptive_ebpf_research.zip"
+  ],
+  "schema_version": 1,
+  "sources": [
+    {
+      "path": "context\\eBPF_Observability_Literature_Review_2026-10-29.md",
+      "retrieved_at": "2026-10-30T17:32:54.892768+00:00",
+      "sha256": "476a4700327dd8e6e1e4585588023a3efbbfcc88a6bd7af84ab037c346d81af3",
+      "source": "research\\eBPF_Observability_Literature_Review_2026-10-29.md"
+    },
+    {
+      "path": "context\\eBPF_OS_Assignment_4_Resource-Aware_eBPF_Observability.docx",
+      "retrieved_at": "2026-10-30T17:32:54.897811+00:00",
+      "sha256": "1c82babf2cfe919f68a2eec9df6bbc50276e9cdb4c89e2b242ab7037e076bc63",
+      "source": "research\\eBPF_OS_Assignment_4_Resource-Aware_eBPF_Observability.docx"
+    },
+    {
+      "path": "context\\plan.md",
+      "retrieved_at": "2026-10-30T17:32:54.902579+00:00",
+      "sha256": "2e495595a19b2dffe6dbdbdec31fa2c737b9b4bf983b5f244e939cd7f22bd4a9",
+      "source": "research\\plan.md"
+    }
+  ]
+}

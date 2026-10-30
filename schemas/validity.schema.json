@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "infrastructure_errors": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "noise_flags": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "valid": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "schema_version",
+    "valid",
+    "infrastructure_errors",
+    "noise_flags"
+  ],
+  "type": "object"
+}

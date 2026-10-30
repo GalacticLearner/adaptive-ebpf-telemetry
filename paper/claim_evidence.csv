@@ -1,0 +1,6 @@
+claim,status,artifact,run_set,uncertainty,scope
+Primary design:56 cells and672 trials,proposed protocol,configs/protocol.yaml,none,not an observation,default12 blocks
+H1,inconclusive,PROGRESS.md,pending,no empirical support,available validated cells only
+H2,inconclusive,PROGRESS.md,pending,no empirical support,available validated cells only
+H3,inconclusive,PROGRESS.md,pending,no empirical support,available validated cells only
+H4,inconclusive,PROGRESS.md,pending,no empirical support,available validated cells only

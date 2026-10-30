@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "development-checked; target host lock pending",
+  "target": "x86_64-linux, kernel >=6.8 with actual tracing feature/load tests",
+  "bpf_isa": "v3",
+  "target_compiler": "clang-18 (exact distribution package version recorded on target before freeze)",
+  "libbpf": {
+    "version": "1.5.1",
+    "url": "https://github.com/libbpf/libbpf/archive/refs/tags/v1.5.1.tar.gz",
+    "sha256": "e5ff89750e48ab5ecdfc02a759aa0dacd1e7980e98e16bdb4bfa8ff0b3b4b98f",
+    "license": "LGPL-2.1 OR BSD-2-Clause; preserve upstream license files"
+  },
+  "development_compiler": "ziglang==0.13.0 (LLVM C cross compiler, development only)",
+  "development_python": "3.14.8",
+  "python_runtime": ">=3.11; exact packages in requirements.lock and requirements-analysis.lock",
+  "actual_target_kernel": null,
+  "actual_bpftool": null,
+  "actual_clang": null,
+  "generated_btf_header_sha256": null,
+  "generated_skeleton_sha256": null
+}
