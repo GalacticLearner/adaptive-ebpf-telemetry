@@ -22,7 +22,7 @@ def package(output, data=None):
         if not data.is_relative_to((ROOT/"data").resolve()):raise ValueError("only project data may be packaged")
         for p in data.rglob("*"):
             if p.is_file():
-                rel=str(p.relative_to(ROOT));files[rel]=digest(p);raw.append(rel)
+                rel=p.relative_to(ROOT).as_posix();files[rel]=digest(p);raw.append(rel)
     manifest={"schema_version":1,"created":utc_now(),"source":state,"files":files,
               "data_files":raw,"missing_experiments":"see PROGRESS.md and campaign inventories"}
     with tarfile.open(tarpath,"w:gz",format=tarfile.PAX_FORMAT) as archive:

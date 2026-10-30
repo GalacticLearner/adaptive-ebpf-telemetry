@@ -342,7 +342,7 @@ def execute(c, row, population, output, *, sample_resources=None):
             write_json(attempt / "manifest.json", manifest)
             write_json(attempt / "validity.json", {"schema_version": 1, "valid": False, "infrastructure_errors": errors, "noise_flags": flags})
     write_json(attempt / "seal.json", {"schema_version": 1, "sealed_at": utc_now(),
-               "files": {str(p.relative_to(attempt)): digest(p) for p in attempt.rglob("*") if p.is_file()}}, exclusive=True)
+               "files": {p.relative_to(attempt).as_posix(): digest(p) for p in attempt.rglob("*") if p.is_file()}}, exclusive=True)
     return attempt, not errors
 
 

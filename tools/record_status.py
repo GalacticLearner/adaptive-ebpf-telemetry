@@ -10,11 +10,11 @@ from runner.matrix import generate,estimate
 
 if __name__=="__main__":
     state=read_json(ROOT/"state/progress.json");now=utc_now();source=git_state()
-    portable={"P0.2","P0.4","P1.4","P4.3","P4.4","P6.2","P8.1","P9.3"}
+    portable={"P0.2","P0.4","P1.4","P4.3","P6.2","P8.1","P9.3","P9.5"}
     literature={"P0.1","P0.3","P8.3"}
     artifacts={
         0:["context/manifest.json","configs/protocol.yaml","configs/parameter_registry.json","requirements_traceability.md","research/claims.md","research/evidence_access.csv"],
-        1:["state/host.json","artifact/toolchain.lock.json","artifact/REPRODUCE.md","state/evidence/unprivileged-final.json","state/evidence/c-compile-final.json"],
+        1:["state/host.json","artifact/toolchain.lock.json","artifact/REPRODUCE.md","state/evidence/unprivileged-final-classified.json","state/evidence/c-compile-final.json"],
         2:["src/workloads/workload.c","src/workloads/known_count.c","runner/trial.py"],
         3:["src/bpf/sentinel.bpf.c","src/bpf/detail.bpf.c","src/common/wire.h","src/agent/sink.c","analysis/wire.py"],
         4:["src/common/policy.c","src/common/cost.c","src/agent/main.c","runner/reference.py","tests/test_core.py"],
@@ -28,7 +28,7 @@ if __name__=="__main__":
         row.update(status="done" if step in portable else "blocked",started_at=row["started_at"] or now,
             finished_at=now if step in portable else None,commit=source["commit"],artifacts=paths,
             checks=["python -m runner test --unprivileged","portable C/BPF target compile checks","synthetic sealed-attempt replay"],
-            blocker=None if step in portable else "Missing v4 review/full-text audit" if step in literature else "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+            blocker=None if step in portable else "Missing v4 review/full-text audit" if step in literature else "Latest native C execution blocked by Windows Application Control; real integration also requires Linux" if step=="P4.4" else "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
             limitations=["Done means the independent software/draft deliverable only; no kernel/performance success implied"] if step in portable else ["Sources/checks prepared; real step acceptance evidence is pending"],
             evidence_hash=canonical_hash({p:digest(ROOT/p) for p in paths}))
     state.update(source_commit=source["commit"],updated_at=now,current_phase=1)

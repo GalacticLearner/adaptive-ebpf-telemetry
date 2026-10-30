@@ -110,7 +110,7 @@ def analyze(source, output, cfg):
              "relative_throughput_loss": bootstrap_blocks([p["log_ratio"] for p in pair], transform=lambda x: 1-math.exp(x), **kwargs),
              "capture_difference": bootstrap_blocks(diffs, **kwargs) if diffs else None})
     result = {"schema_version": 1, "protocol_version": next(iter(protocols)), "synthetic": next(iter(synthetic)),
-              "input_hashes": {str(p / "seal.json"): digest(p / "seal.json") for p in paths if (p / "seal.json").exists()},
+              "input_hashes": {(p / "seal.json").as_posix(): digest(p / "seal.json") for p in paths if (p / "seal.json").exists()},
               "attempts": checked + duplicate, "comparisons": comparisons, "missing": missing,
               "hypotheses": {h: {"decision": "inconclusive", "reason": "synthetic verification only" if next(iter(synthetic)) else "requires scoped scientific review against fixed frontier, precision and robustness inventory"} for h in ("H1", "H2", "H3", "H4")}}
     schema(result, "results")

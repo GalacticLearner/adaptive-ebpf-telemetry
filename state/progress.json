@@ -44,7 +44,7 @@
   },
   "protocol_version": "aet-v1",
   "schema_version": 1,
-  "source_commit": null,
+  "source_commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
   "steps": {
     "P0.1": {
       "artifacts": [
@@ -61,7 +61,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [],
       "evidence_hash": "4766e3bc898ec13813cccc6d294e704b38750049a7e201d9f48b7e45e9c448c1",
       "finished_at": null,
@@ -87,10 +87,10 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [],
       "evidence_hash": "4766e3bc898ec13813cccc6d294e704b38750049a7e201d9f48b7e45e9c448c1",
-      "finished_at": "2026-10-30T18:46:38.904624+00:00",
+      "finished_at": "2026-10-30T18:58:31.431506+00:00",
       "limitations": [
         "Done means the independent software/draft deliverable only; no kernel/performance success implied"
       ],
@@ -113,7 +113,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [],
       "evidence_hash": "4766e3bc898ec13813cccc6d294e704b38750049a7e201d9f48b7e45e9c448c1",
       "finished_at": null,
@@ -139,10 +139,10 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [],
       "evidence_hash": "4766e3bc898ec13813cccc6d294e704b38750049a7e201d9f48b7e45e9c448c1",
-      "finished_at": "2026-10-30T18:46:38.904624+00:00",
+      "finished_at": "2026-10-30T18:58:31.431506+00:00",
       "limitations": [
         "Done means the independent software/draft deliverable only; no kernel/performance success implied"
       ],
@@ -155,7 +155,7 @@
         "state/host.json",
         "artifact/toolchain.lock.json",
         "artifact/REPRODUCE.md",
-        "state/evidence/unprivileged-final.json",
+        "state/evidence/unprivileged-final-classified.json",
         "state/evidence/c-compile-final.json"
       ],
       "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
@@ -164,14 +164,14 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P0.1",
         "P0.2",
         "P0.3",
         "P0.4"
       ],
-      "evidence_hash": "8e492c6d55e67f453e93450c4a701b30a7754b5f827fbcf962f5f0e0270b9f4d",
+      "evidence_hash": "03ab3752e7c468522fa62198de3d09376f2881a872aee6ecb63cfe9e0fe0f49a",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -185,7 +185,7 @@
         "state/host.json",
         "artifact/toolchain.lock.json",
         "artifact/REPRODUCE.md",
-        "state/evidence/unprivileged-final.json",
+        "state/evidence/unprivileged-final-classified.json",
         "state/evidence/c-compile-final.json"
       ],
       "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
@@ -194,14 +194,14 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P0.1",
         "P0.2",
         "P0.3",
         "P0.4"
       ],
-      "evidence_hash": "8e492c6d55e67f453e93450c4a701b30a7754b5f827fbcf962f5f0e0270b9f4d",
+      "evidence_hash": "03ab3752e7c468522fa62198de3d09376f2881a872aee6ecb63cfe9e0fe0f49a",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -215,7 +215,7 @@
         "state/host.json",
         "artifact/toolchain.lock.json",
         "artifact/REPRODUCE.md",
-        "state/evidence/unprivileged-final.json",
+        "state/evidence/unprivileged-final-classified.json",
         "state/evidence/c-compile-final.json"
       ],
       "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
@@ -224,14 +224,14 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P0.1",
         "P0.2",
         "P0.3",
         "P0.4"
       ],
-      "evidence_hash": "8e492c6d55e67f453e93450c4a701b30a7754b5f827fbcf962f5f0e0270b9f4d",
+      "evidence_hash": "03ab3752e7c468522fa62198de3d09376f2881a872aee6ecb63cfe9e0fe0f49a",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -245,7 +245,7 @@
         "state/host.json",
         "artifact/toolchain.lock.json",
         "artifact/REPRODUCE.md",
-        "state/evidence/unprivileged-final.json",
+        "state/evidence/unprivileged-final-classified.json",
         "state/evidence/c-compile-final.json"
       ],
       "blocker": null,
@@ -254,15 +254,15 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P0.1",
         "P0.2",
         "P0.3",
         "P0.4"
       ],
-      "evidence_hash": "8e492c6d55e67f453e93450c4a701b30a7754b5f827fbcf962f5f0e0270b9f4d",
-      "finished_at": "2026-10-30T18:46:38.904624+00:00",
+      "evidence_hash": "03ab3752e7c468522fa62198de3d09376f2881a872aee6ecb63cfe9e0fe0f49a",
+      "finished_at": "2026-10-30T18:58:31.431506+00:00",
       "limitations": [
         "Done means the independent software/draft deliverable only; no kernel/performance success implied"
       ],
@@ -282,14 +282,14 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P1.1",
         "P1.2",
         "P1.3",
         "P1.4"
       ],
-      "evidence_hash": "fc8bb4dca2c48a9e57fa63eeda810985de2def28c537a9477bc9ba350d6bc69a",
+      "evidence_hash": "b7ca82b8804ce86407860c8dc599a3e7e7d566b3c69ec8688be6ab0cb536c195",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -310,14 +310,14 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P1.1",
         "P1.2",
         "P1.3",
         "P1.4"
       ],
-      "evidence_hash": "fc8bb4dca2c48a9e57fa63eeda810985de2def28c537a9477bc9ba350d6bc69a",
+      "evidence_hash": "b7ca82b8804ce86407860c8dc599a3e7e7d566b3c69ec8688be6ab0cb536c195",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -338,14 +338,14 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P1.1",
         "P1.2",
         "P1.3",
         "P1.4"
       ],
-      "evidence_hash": "fc8bb4dca2c48a9e57fa63eeda810985de2def28c537a9477bc9ba350d6bc69a",
+      "evidence_hash": "b7ca82b8804ce86407860c8dc599a3e7e7d566b3c69ec8688be6ab0cb536c195",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -366,14 +366,14 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P1.1",
         "P1.2",
         "P1.3",
         "P1.4"
       ],
-      "evidence_hash": "fc8bb4dca2c48a9e57fa63eeda810985de2def28c537a9477bc9ba350d6bc69a",
+      "evidence_hash": "b7ca82b8804ce86407860c8dc599a3e7e7d566b3c69ec8688be6ab0cb536c195",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -394,14 +394,14 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P1.1",
         "P1.2",
         "P1.3",
         "P1.4"
       ],
-      "evidence_hash": "fc8bb4dca2c48a9e57fa63eeda810985de2def28c537a9477bc9ba350d6bc69a",
+      "evidence_hash": "b7ca82b8804ce86407860c8dc599a3e7e7d566b3c69ec8688be6ab0cb536c195",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -424,7 +424,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P2.1",
         "P2.2",
@@ -455,7 +455,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P2.1",
         "P2.2",
@@ -486,7 +486,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P2.1",
         "P2.2",
@@ -517,7 +517,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P2.1",
         "P2.2",
@@ -548,7 +548,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P2.1",
         "P2.2",
@@ -579,7 +579,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P2.1",
         "P2.2",
@@ -610,7 +610,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P3.1",
         "P3.2",
@@ -619,7 +619,7 @@
         "P3.5",
         "P3.6"
       ],
-      "evidence_hash": "8470f13da92fe23187af4212f701942bfff7b9a17a4e8f55b9b7ea9099505ed8",
+      "evidence_hash": "4d206feeac2ce620173467c500b140edd0c8c2dd4b96180fab633cb56e6d4e11",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -642,7 +642,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P3.1",
         "P3.2",
@@ -651,7 +651,7 @@
         "P3.5",
         "P3.6"
       ],
-      "evidence_hash": "8470f13da92fe23187af4212f701942bfff7b9a17a4e8f55b9b7ea9099505ed8",
+      "evidence_hash": "4d206feeac2ce620173467c500b140edd0c8c2dd4b96180fab633cb56e6d4e11",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -674,7 +674,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P3.1",
         "P3.2",
@@ -683,8 +683,8 @@
         "P3.5",
         "P3.6"
       ],
-      "evidence_hash": "8470f13da92fe23187af4212f701942bfff7b9a17a4e8f55b9b7ea9099505ed8",
-      "finished_at": "2026-10-30T18:46:38.904624+00:00",
+      "evidence_hash": "4d206feeac2ce620173467c500b140edd0c8c2dd4b96180fab633cb56e6d4e11",
+      "finished_at": "2026-10-30T18:58:31.431506+00:00",
       "limitations": [
         "Done means the independent software/draft deliverable only; no kernel/performance success implied"
       ],
@@ -700,13 +700,13 @@
         "runner/reference.py",
         "tests/test_core.py"
       ],
-      "blocker": null,
+      "blocker": "Latest native C execution blocked by Windows Application Control; real integration also requires Linux",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P3.1",
         "P3.2",
@@ -715,13 +715,13 @@
         "P3.5",
         "P3.6"
       ],
-      "evidence_hash": "8470f13da92fe23187af4212f701942bfff7b9a17a4e8f55b9b7ea9099505ed8",
-      "finished_at": "2026-10-30T18:46:38.904624+00:00",
+      "evidence_hash": "4d206feeac2ce620173467c500b140edd0c8c2dd4b96180fab633cb56e6d4e11",
+      "finished_at": null,
       "limitations": [
-        "Done means the independent software/draft deliverable only; no kernel/performance success implied"
+        "Sources/checks prepared; real step acceptance evidence is pending"
       ],
       "started_at": "2026-10-30T18:46:38.904624+00:00",
-      "status": "done",
+      "status": "blocked",
       "title": "Controller"
     },
     "P4.5": {
@@ -738,7 +738,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P3.1",
         "P3.2",
@@ -747,7 +747,7 @@
         "P3.5",
         "P3.6"
       ],
-      "evidence_hash": "8470f13da92fe23187af4212f701942bfff7b9a17a4e8f55b9b7ea9099505ed8",
+      "evidence_hash": "4d206feeac2ce620173467c500b140edd0c8c2dd4b96180fab633cb56e6d4e11",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -769,7 +769,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P4.1",
         "P4.2",
@@ -799,7 +799,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P4.1",
         "P4.2",
@@ -829,7 +829,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P4.1",
         "P4.2",
@@ -859,7 +859,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P4.1",
         "P4.2",
@@ -889,7 +889,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P4.1",
         "P4.2",
@@ -919,7 +919,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P4.1",
         "P4.2",
@@ -940,7 +940,8 @@
       "artifacts": [
         "runner/matrix.py",
         "runner/campaign.py",
-        "runner/freeze.py"
+        "runner/freeze.py",
+        "state/campaign_inventory.json"
       ],
       "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
       "checks": [
@@ -948,7 +949,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P5.1",
         "P5.2",
@@ -957,7 +958,7 @@
         "P5.5",
         "P5.6"
       ],
-      "evidence_hash": "a73e3ca99e082dfec5a36f3c3a8a941457f5491c9799b5a572775f991bbc029a",
+      "evidence_hash": "4d9c66058d147f81dd888e0c01f4d50a1dda9f6ea2bdc14280668a568f83db4c",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -970,7 +971,8 @@
       "artifacts": [
         "runner/matrix.py",
         "runner/campaign.py",
-        "runner/freeze.py"
+        "runner/freeze.py",
+        "state/campaign_inventory.json"
       ],
       "blocker": null,
       "checks": [
@@ -978,7 +980,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P5.1",
         "P5.2",
@@ -987,8 +989,8 @@
         "P5.5",
         "P5.6"
       ],
-      "evidence_hash": "a73e3ca99e082dfec5a36f3c3a8a941457f5491c9799b5a572775f991bbc029a",
-      "finished_at": "2026-10-30T18:46:38.904624+00:00",
+      "evidence_hash": "4d9c66058d147f81dd888e0c01f4d50a1dda9f6ea2bdc14280668a568f83db4c",
+      "finished_at": "2026-10-30T18:58:31.431506+00:00",
       "limitations": [
         "Done means the independent software/draft deliverable only; no kernel/performance success implied"
       ],
@@ -1000,7 +1002,8 @@
       "artifacts": [
         "runner/matrix.py",
         "runner/campaign.py",
-        "runner/freeze.py"
+        "runner/freeze.py",
+        "state/campaign_inventory.json"
       ],
       "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
       "checks": [
@@ -1008,7 +1011,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P5.1",
         "P5.2",
@@ -1017,7 +1020,7 @@
         "P5.5",
         "P5.6"
       ],
-      "evidence_hash": "a73e3ca99e082dfec5a36f3c3a8a941457f5491c9799b5a572775f991bbc029a",
+      "evidence_hash": "4d9c66058d147f81dd888e0c01f4d50a1dda9f6ea2bdc14280668a568f83db4c",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1030,7 +1033,8 @@
       "artifacts": [
         "runner/matrix.py",
         "runner/campaign.py",
-        "runner/freeze.py"
+        "runner/freeze.py",
+        "state/campaign_inventory.json"
       ],
       "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
       "checks": [
@@ -1038,7 +1042,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P5.1",
         "P5.2",
@@ -1047,7 +1051,7 @@
         "P5.5",
         "P5.6"
       ],
-      "evidence_hash": "a73e3ca99e082dfec5a36f3c3a8a941457f5491c9799b5a572775f991bbc029a",
+      "evidence_hash": "4d9c66058d147f81dd888e0c01f4d50a1dda9f6ea2bdc14280668a568f83db4c",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1060,7 +1064,8 @@
       "artifacts": [
         "runner/matrix.py",
         "runner/campaign.py",
-        "runner/freeze.py"
+        "runner/freeze.py",
+        "state/campaign_inventory.json"
       ],
       "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
       "checks": [
@@ -1068,7 +1073,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P5.1",
         "P5.2",
@@ -1077,7 +1082,7 @@
         "P5.5",
         "P5.6"
       ],
-      "evidence_hash": "a73e3ca99e082dfec5a36f3c3a8a941457f5491c9799b5a572775f991bbc029a",
+      "evidence_hash": "4d9c66058d147f81dd888e0c01f4d50a1dda9f6ea2bdc14280668a568f83db4c",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1090,7 +1095,8 @@
       "artifacts": [
         "runner/matrix.py",
         "runner/campaign.py",
-        "runner/freeze.py"
+        "runner/freeze.py",
+        "state/campaign_inventory.json"
       ],
       "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
       "checks": [
@@ -1098,7 +1104,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P5.1",
         "P5.2",
@@ -1107,7 +1113,7 @@
         "P5.5",
         "P5.6"
       ],
-      "evidence_hash": "a73e3ca99e082dfec5a36f3c3a8a941457f5491c9799b5a572775f991bbc029a",
+      "evidence_hash": "4d9c66058d147f81dd888e0c01f4d50a1dda9f6ea2bdc14280668a568f83db4c",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1131,7 +1137,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P6.1",
         "P6.2",
@@ -1140,7 +1146,7 @@
         "P6.5",
         "P6.6"
       ],
-      "evidence_hash": "6e36d20cb6cae14ffb4ee6f37b787383370fbddb19d0922ec72760bdedb57cb5",
+      "evidence_hash": "7e559aa6550d63c561d70759f082617e920bc16d63e113d6d8917bc7d9d0f236",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1164,7 +1170,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P6.1",
         "P6.2",
@@ -1173,7 +1179,7 @@
         "P6.5",
         "P6.6"
       ],
-      "evidence_hash": "6e36d20cb6cae14ffb4ee6f37b787383370fbddb19d0922ec72760bdedb57cb5",
+      "evidence_hash": "7e559aa6550d63c561d70759f082617e920bc16d63e113d6d8917bc7d9d0f236",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1197,7 +1203,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P6.1",
         "P6.2",
@@ -1206,7 +1212,7 @@
         "P6.5",
         "P6.6"
       ],
-      "evidence_hash": "6e36d20cb6cae14ffb4ee6f37b787383370fbddb19d0922ec72760bdedb57cb5",
+      "evidence_hash": "7e559aa6550d63c561d70759f082617e920bc16d63e113d6d8917bc7d9d0f236",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1230,7 +1236,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P6.1",
         "P6.2",
@@ -1239,7 +1245,7 @@
         "P6.5",
         "P6.6"
       ],
-      "evidence_hash": "6e36d20cb6cae14ffb4ee6f37b787383370fbddb19d0922ec72760bdedb57cb5",
+      "evidence_hash": "7e559aa6550d63c561d70759f082617e920bc16d63e113d6d8917bc7d9d0f236",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1263,7 +1269,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P6.1",
         "P6.2",
@@ -1272,7 +1278,7 @@
         "P6.5",
         "P6.6"
       ],
-      "evidence_hash": "6e36d20cb6cae14ffb4ee6f37b787383370fbddb19d0922ec72760bdedb57cb5",
+      "evidence_hash": "7e559aa6550d63c561d70759f082617e920bc16d63e113d6d8917bc7d9d0f236",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1296,7 +1302,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P6.1",
         "P6.2",
@@ -1305,7 +1311,7 @@
         "P6.5",
         "P6.6"
       ],
-      "evidence_hash": "6e36d20cb6cae14ffb4ee6f37b787383370fbddb19d0922ec72760bdedb57cb5",
+      "evidence_hash": "7e559aa6550d63c561d70759f082617e920bc16d63e113d6d8917bc7d9d0f236",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1327,7 +1333,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P7.1",
         "P7.2",
@@ -1337,7 +1343,7 @@
         "P7.6"
       ],
       "evidence_hash": "4d25901f6fca0c559673a57d53615138b829854c28ccd29a1fc6c05c071a760a",
-      "finished_at": "2026-10-30T18:46:38.904624+00:00",
+      "finished_at": "2026-10-30T18:58:31.431506+00:00",
       "limitations": [
         "Done means the independent software/draft deliverable only; no kernel/performance success implied"
       ],
@@ -1358,7 +1364,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P7.1",
         "P7.2",
@@ -1389,7 +1395,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P7.1",
         "P7.2",
@@ -1420,7 +1426,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P7.1",
         "P7.2",
@@ -1451,7 +1457,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P7.1",
         "P7.2",
@@ -1473,7 +1479,8 @@
       "artifacts": [
         "artifact/REPRODUCE.md",
         "runner/package.py",
-        "runner/cleanup.py"
+        "runner/cleanup.py",
+        "artifact/RELEASE.md"
       ],
       "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
       "checks": [
@@ -1481,7 +1488,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P8.1",
         "P8.2",
@@ -1489,7 +1496,7 @@
         "P8.4",
         "P8.5"
       ],
-      "evidence_hash": "e62d6ea146d36ef80b0723dafa7f07b4a237d9481a7be39027ad32be5d9a1555",
+      "evidence_hash": "1c00b72d989afeb15356eda7df7636a81abdfb03f07e7dae680230fdf5344e3e",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1502,7 +1509,8 @@
       "artifacts": [
         "artifact/REPRODUCE.md",
         "runner/package.py",
-        "runner/cleanup.py"
+        "runner/cleanup.py",
+        "artifact/RELEASE.md"
       ],
       "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
       "checks": [
@@ -1510,7 +1518,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P8.1",
         "P8.2",
@@ -1518,7 +1526,7 @@
         "P8.4",
         "P8.5"
       ],
-      "evidence_hash": "e62d6ea146d36ef80b0723dafa7f07b4a237d9481a7be39027ad32be5d9a1555",
+      "evidence_hash": "1c00b72d989afeb15356eda7df7636a81abdfb03f07e7dae680230fdf5344e3e",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1531,7 +1539,8 @@
       "artifacts": [
         "artifact/REPRODUCE.md",
         "runner/package.py",
-        "runner/cleanup.py"
+        "runner/cleanup.py",
+        "artifact/RELEASE.md"
       ],
       "blocker": null,
       "checks": [
@@ -1539,7 +1548,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P8.1",
         "P8.2",
@@ -1547,8 +1556,8 @@
         "P8.4",
         "P8.5"
       ],
-      "evidence_hash": "e62d6ea146d36ef80b0723dafa7f07b4a237d9481a7be39027ad32be5d9a1555",
-      "finished_at": "2026-10-30T18:46:38.904624+00:00",
+      "evidence_hash": "1c00b72d989afeb15356eda7df7636a81abdfb03f07e7dae680230fdf5344e3e",
+      "finished_at": "2026-10-30T18:58:31.431506+00:00",
       "limitations": [
         "Done means the independent software/draft deliverable only; no kernel/performance success implied"
       ],
@@ -1560,7 +1569,8 @@
       "artifacts": [
         "artifact/REPRODUCE.md",
         "runner/package.py",
-        "runner/cleanup.py"
+        "runner/cleanup.py",
+        "artifact/RELEASE.md"
       ],
       "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
       "checks": [
@@ -1568,7 +1578,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P8.1",
         "P8.2",
@@ -1576,7 +1586,7 @@
         "P8.4",
         "P8.5"
       ],
-      "evidence_hash": "e62d6ea146d36ef80b0723dafa7f07b4a237d9481a7be39027ad32be5d9a1555",
+      "evidence_hash": "1c00b72d989afeb15356eda7df7636a81abdfb03f07e7dae680230fdf5344e3e",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1589,15 +1599,16 @@
       "artifacts": [
         "artifact/REPRODUCE.md",
         "runner/package.py",
-        "runner/cleanup.py"
+        "runner/cleanup.py",
+        "artifact/RELEASE.md"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": null,
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": null,
+      "commit": "8c13b2c331d61d3a5535066fd78fee0afdbae67d",
       "depends_on": [
         "P8.1",
         "P8.2",
@@ -1605,15 +1616,15 @@
         "P8.4",
         "P8.5"
       ],
-      "evidence_hash": "e62d6ea146d36ef80b0723dafa7f07b4a237d9481a7be39027ad32be5d9a1555",
-      "finished_at": null,
+      "evidence_hash": "1c00b72d989afeb15356eda7df7636a81abdfb03f07e7dae680230fdf5344e3e",
+      "finished_at": "2026-10-30T18:58:31.431506+00:00",
       "limitations": [
-        "Sources/checks prepared; real step acceptance evidence is pending"
+        "Done means the independent software/draft deliverable only; no kernel/performance success implied"
       ],
       "started_at": "2026-10-30T18:46:38.904624+00:00",
-      "status": "blocked",
+      "status": "done",
       "title": "Final status"
     }
   },
-  "updated_at": "2026-10-30T18:46:38.904624+00:00"
+  "updated_at": "2026-10-30T18:58:31.431506+00:00"
 }

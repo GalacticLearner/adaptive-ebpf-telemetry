@@ -1,6 +1,6 @@
 # Plan progress
 
-Updated: 2026-10-30T18:46:38.904624+00:00
+Updated: 2026-10-30T18:58:31.431506+00:00
 
 Status reflects evidence, not source-code presence. Windows cannot satisfy Linux kernel/performance gates.
 
@@ -58,7 +58,7 @@ Gate G3: blocked. Kernel/application empirical acceptance evidence unavailable; 
 | P4.1 | blocked | Fixed modes — Requires real authorized Linux/kernel measurements or dependent empirical evidence |
 | P4.2 | blocked | GATE/SWITCH lifecycle — Requires real authorized Linux/kernel measurements or dependent empirical evidence |
 | P4.3 | done | Detector |
-| P4.4 | done | Controller |
+| P4.4 | blocked | Controller — Latest native C execution blocked by Windows Application Control; real integration also requires Linux |
 | P4.5 | blocked | Integration — Requires real authorized Linux/kernel measurements or dependent empirical evidence |
 
 Gate G4: blocked. Kernel/application empirical acceptance evidence unavailable; synthetic checks do not satisfy this gate
@@ -122,6 +122,6 @@ Gate G8: blocked. Kernel/application empirical acceptance evidence unavailable; 
 | P9.2 | blocked | Artifact bundle — Requires real authorized Linux/kernel measurements or dependent empirical evidence |
 | P9.3 | done | Reproduction guide |
 | P9.4 | blocked | Restore and verify — Requires real authorized Linux/kernel measurements or dependent empirical evidence |
-| P9.5 | blocked | Final status — Requires real authorized Linux/kernel measurements or dependent empirical evidence |
+| P9.5 | done | Final status |
 
 Gate G9: blocked. Kernel/application empirical acceptance evidence unavailable; synthetic checks do not satisfy this gate

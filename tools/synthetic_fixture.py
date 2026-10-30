@@ -66,7 +66,7 @@ def create(output,blocks=3):
                     ns=epoch+tenth*100_000_000
                     state=any(epoch+e["offset_ns"]<=ns<epoch+e["offset_ns"]+700_000_000 for e in intended)
                     writer.writerow([ns,0,0,10,8 if state else 0,0,2 if state else 0,2,2 if state else 0,int(state),int(state)])
-        write_json(path/"seal.json",{"schema_version":1,"sealed_at":utc_now(),"files":{str(p.relative_to(path)):digest(p) for p in path.iterdir() if p.is_file()}},exclusive=True)
+        write_json(path/"seal.json",{"schema_version":1,"sealed_at":utc_now(),"files":{p.relative_to(path).as_posix():digest(p) for p in path.iterdir() if p.is_file()}},exclusive=True)
     return output
 
 
