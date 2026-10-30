@@ -1,0 +1,20 @@
+{
+  "all_valid": true,
+  "attempts": 21,
+  "comparisons": 6,
+  "figure_blockers": [
+    {
+      "figure": "model_error",
+      "reason": "no independent calibration predictions",
+      "status": "blocked"
+    },
+    {
+      "figure": "attribution_robustness",
+      "reason": "no validated attribution/host/placement cells",
+      "status": "blocked"
+    }
+  ],
+  "figures_generated": 7,
+  "schema_version": 1,
+  "synthetic": true
+}
