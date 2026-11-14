@@ -11,12 +11,34 @@ from .trial import execute
 from .util import ROOT, canonical_hash, host_lock, seed_for, write_json,read_json
 
 
+def select_rate_rows(rows, limit, include_io=False):
+    if limit is None:
+        return rows
+    if not include_io:
+        return rows[:limit]
+    if limit < 4:
+        raise ValueError("--include-io requires --limit of at least 4 for CPU/I/O NONE and FIX_LOW_GATE pairs")
+    selected = []
+    for family, policy in (("cpu", "NONE"), ("cpu", "FIX_LOW_GATE"), ("io", "NONE"), ("io", "FIX_LOW_GATE")):
+        row = next((r for r in rows if r["scenario"]["workload"] == family and
+                    r["scenario"]["background"] == "low" and r["block_id"].endswith("b000") and
+                    r["policy"] == policy), None)
+        if row is None:
+            raise ValueError(f"no low-background block-zero row for {family}/{policy}")
+        selected.append(row)
+    if len(selected) < limit:
+        remaining = [r for r in rows if r not in selected]
+        selected.extend(remaining[:limit - len(selected)])
+    return selected[:limit]
+
+
 def collect(args,c):
     if not read_json(ROOT/"state/host.json").get("privileged_smoke_passed"):
         raise ValueError("real privileged smoke/count/cleanup gate must pass before calibration collection")
     if args.stage=="precision":raise ValueError("precision acquisition uses pilot; derive with --input pilot-effects.json")
     if c["protocol"]["population"]!="calibration":raise ValueError("--collect requires a calibration configuration")
     if c["workload"]["compute_repeats"] is None:raise ValueError("set an explicit calibration candidate compute_repeats before collection")
+    if args.include_io and args.stage!="rate":raise ValueError("--include-io is supported only for rate calibration")
     output=args.output or ROOT/"data/calibration"/f"{args.stage}-{args.split}"
     rows=[]
     for family in ("cpu","io"):
@@ -40,11 +62,11 @@ def collect(args,c):
                 candidate=copy.deepcopy(row);candidate["trial_id"]+=f"-{variant}";candidate["scenario"].update(options,variant=variant)
                 expanded.append(candidate)
         rows=expanded
+    run_rows=select_rate_rows(rows,args.limit,args.include_io)
     output=Path(output);output.mkdir(parents=True,exist_ok=False)
     write_json(output/"collection.json",{"schema_version":1,"stage":args.stage,"split":args.split,"rows":rows},exclusive=True)
     with host_lock(ROOT/"state/host.lock"):
-        for index,row in enumerate(rows):
-            if args.limit is not None and index>=args.limit:break
+        for row in run_rows:
             path,valid=execute(c,row,"calibration",output)
             row.update(status="valid" if valid else "failed",attempt=str(path))
             print(f"calibration:{row['trial_id']}:{row['status']}",flush=True)

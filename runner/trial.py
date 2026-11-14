@@ -105,7 +105,8 @@ def resource_sampler(output, children, stop, cpu=None):
 
 def runtime_config(c, policy):
     detector = read_json(c["detector"]["model"]) if c["detector"]["model"] else None
-    bootstrap = detector is None and c["protocol"]["population"] == "calibration" and not policy.startswith(("ADAPT", "TRIGGER"))
+    adaptive = policy.startswith(("ADAPT", "TRIGGER"))
+    bootstrap = detector is None and c["protocol"]["population"] in ("calibration", "pilot") and not adaptive
     if detector is None and not bootstrap:
         raise TrialFailure("normal-training detector baseline missing")
     key = f"{c['workload']['family']}/{c['incidents']['background']}/{c['detector']['signal']}"
@@ -114,7 +115,6 @@ def runtime_config(c, policy):
     if key not in detector["deployments"]:
         raise TrialFailure(f"detector deployment not calibrated: {key}")
     base = detector["deployments"][key]
-    adaptive = policy.startswith(("ADAPT", "TRIGGER"))
     supervisor = adaptive and policy.startswith("ADAPT") and c["controller"]["supervisor"]
     mechanism = "SWITCH" if policy.endswith("SWITCH") else "GATE"
     model = read_json(c["controller"]["model"]) if c["controller"]["model"] else None
@@ -152,7 +152,7 @@ def runtime_config(c, policy):
 def stage_requirement(c):
     rate = c["detail"]["calibrated_peak_rate"]
     if rate is None:
-        if c["protocol"]["population"] == "calibration":
+        if c["protocol"]["population"] in ("calibration", "pilot"):
             return c["workload"]["max_stage_bytes"]
         raise TrialFailure("aggregate peak eligible rate (including incidents) is not calibrated")
     # 72-byte transport stride plus worst-case one-record 16-byte frame overhead.

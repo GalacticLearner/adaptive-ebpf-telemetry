@@ -17,7 +17,7 @@ $(BUILD)/vmlinux.h: | $(BUILD)
 	$(BPFTOOL) btf dump file /sys/kernel/btf/vmlinux format c > $@.tmp
 	mv $@.tmp $@
 $(BUILD)/%.bpf.o: src/bpf/%.bpf.c src/common/wire.h $(BUILD)/vmlinux.h
-	$(CLANG) -g -O2 -target bpf -mcpu=v3 -D__TARGET_ARCH_x86 -I$(BUILD) -I/usr/include/$(shell $(CC) -dumpmachine) $(LIBBPF_CFLAGS) -Wall -Werror -c $< -o $@
+	$(CLANG) -g -O2 -target bpf -mcpu=v3 -D__TARGET_ARCH_x86 -I$(BUILD) -I/usr/include/$(shell $(CC) -dumpmachine) $(LIBBPF_CFLAGS) -Wall -Werror -Wno-missing-declarations -c $< -o $@
 $(BUILD)/%.skel.h: $(BUILD)/%.bpf.o
 	$(BPFTOOL) gen skeleton $< > $@.tmp
 	mv $@.tmp $@

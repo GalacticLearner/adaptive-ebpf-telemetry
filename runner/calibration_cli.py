@@ -133,11 +133,18 @@ def calibrate(args,c):
         result={"schema_version":1,"comparisons":comparisons,"independent_unit":"paired block","limitation":"transport/kernel and application perturbation are separate costs"}
         target=target or Path("state/calibration/perturbation.json")
     else:
-        attempts=find_attempts(args.input);rates=[]
+        attempts=find_attempts(args.input);rates=[];excluded=[];skipped=[]
         for path in attempts:
-            if not validate_attempt(path)["valid"]:raise ValueError(f"invalid rate calibration:{path}")
+            checked=validate_attempt(path)
+            if not checked["valid"]:
+                if not args.exclude_invalid:raise ValueError(f"invalid rate calibration:{path}")
+                excluded.append({"attempt":str(path),"errors":checked["errors"]})
+                continue
             m=read_json(path/"manifest.json")
             if m["synthetic"] or m["population"]!="calibration":raise ValueError("rate calibration cannot use synthetic/final data")
+            if m["policy"]=="NONE":
+                skipped.append({"attempt":str(path),"reason":"NONE baseline has no BPF event counters"})
+                continue
             counters=read_json(path/"counters.json")
             config=read_json(path/"resolved_config.json")
             duration=config["workload"]["warmup_s"]+config["workload"]["measure_s"]+config["workload"]["drain_s"]
@@ -146,7 +153,8 @@ def calibrate(args,c):
                           "seal_sha256":digest(path/"seal.json")})
         if not rates:raise ValueError("no rate calibration attempts")
         result={"schema_version":1,"rates":rates,"max_observed_average_eligible_rate":max(r["eligible_per_s"] for r in rates),
-                "peak_rate_resolved":False,"limitation":"whole-run averages do not bound short helper bursts; inspect bounded burst/sustained sink tests before freeze"}
+            "peak_rate_resolved":False,"excluded_attempts":excluded,"skipped_attempts":skipped,
+            "limitation":"whole-run averages do not bound short helper bursts; inspect bounded burst/sustained sink tests before freeze"}
         target=target or Path("state/calibration/rates.json")
     write_json(target,result,exclusive=True)
     return {"output":str(target),"sha256":digest(target)}

@@ -36,7 +36,7 @@ workload:
   publish_ms: 100
   sample_units_every: 0
   input_seed: 200000
-  min_free_disk_bytes: 107374182400
+  min_free_disk_bytes: 16106127360
   disk_headroom: 0.2
   max_stage_bytes: 1073741824
   max_ram_fraction: 0.2

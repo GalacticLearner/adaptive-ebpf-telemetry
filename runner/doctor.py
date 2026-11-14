@@ -25,6 +25,8 @@ def discover(output=None):
             "disk": dict(zip(("total", "used", "free"), shutil.disk_usage(Path.cwd())))}
     for tool in ("clang", "cc", "bpftool", "pkg-config", "make", "git"):
         path = shutil.which(tool)
+        if tool == "clang" and not path:
+            path = shutil.which("clang-18")
         host["tools"][tool] = command([path, "version" if tool == "bpftool" else "--version"], timeout=10) if path else None
     if not linux:
         host["blockers"].append("Linux tracing host unavailable; no BPF feature/load/attach evidence")

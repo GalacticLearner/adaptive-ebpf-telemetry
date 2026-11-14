@@ -7,15 +7,18 @@ import random
 import subprocess
 import tempfile
 import unittest
+from types import SimpleNamespace
 
 from runner.config import ConfigError, load_config, unresolved
-from runner.matrix import CORE, estimate, generate, schedule
+from runner.collect import select_rate_rows
+from runner.matrix import CORE, estimate, generate, schedule, select_within_budget
 from runner.reference import Controller, Lifecycle, bin_value, config_word, score, threshold, train_baseline
 from runner.util import ROOT, canonical_hash, host_lock, seed_for
+from analysis.metrics import matches_source_futex
 from analysis.stats import bootstrap_blocks, choose_blocks, holm, paired_throughput, poisson_rate_interval
 from analysis.metrics import match_alerts, throughput
 from analysis.wire import Event, EVENT, records, write_records
-from analysis.validate import ledger
+from analysis.validate import bounded_pilot_loss_errors, ledger
 
 
 class ConfigMatrixTests(unittest.TestCase):
@@ -27,6 +30,42 @@ class ConfigMatrixTests(unittest.TestCase):
         for block in blocks.values():
             self.assertEqual({r["policy"] for r in block},set(CORE));self.assertEqual(len({canonical_hash(r["seeds"]) for r in block}),1)
         self.assertGreater(len({rs[0]["policy"] for rs in blocks.values()}),1)
+    def test_time_budget_selects_complete_matched_blocks(self):
+        rows=generate(self.c,"primary")
+        one_block=[row for row in rows if row["block_id"]==rows[0]["block_id"]]
+        block_hours=estimate(self.c,one_block)["host_hours"]
+        selected=select_within_budget(self.c,rows,2*block_hours)
+        blocks={}
+        for row in selected:blocks.setdefault(row["block_id"],[]).append(row)
+        self.assertEqual(len(selected),2*len(CORE))
+        self.assertTrue(all({row["policy"] for row in block}==set(CORE) for block in blocks.values()))
+        self.assertLessEqual(estimate(self.c,selected)["host_hours"],2*block_hours)
+        with self.assertRaisesRegex(ValueError,"one complete matched block"):
+            select_within_budget(self.c,rows,block_hours/2)
+    def test_limited_rate_sample_includes_cpu_and_io_pairs(self):
+        rows=[]
+        for family in ("cpu","io"):
+            for policy in ("NONE","FIX_LOW_GATE","SENT"):
+                rows.append({"trial_id":f"{family}-{policy}","block_id":f"cal-b000","policy":policy,
+                             "scenario":{"workload":family,"background":"low"}})
+        selected=select_rate_rows(rows,5,include_io=True)
+        self.assertEqual(len(selected),5)
+        self.assertEqual({row["scenario"]["workload"] for row in selected},{"cpu","io"})
+        self.assertTrue({"cpu-NONE","cpu-FIX_LOW_GATE","io-NONE","io-FIX_LOW_GATE"}.issubset({row["trial_id"] for row in selected}))
+        with self.assertRaisesRegex(ValueError,"at least 4"):
+            select_rate_rows(rows,3,include_io=True)
+    def test_quick_pilot_is_bounded_and_fixed_policy(self):
+        from runner.campaign import bounded_pilot_profile
+        from runner.matrix import estimate
+        c=load_config(ROOT/"configs/pilot.yaml")
+        rows=generate(c,"primary")
+        self.assertEqual(len(rows),16)
+        self.assertEqual({r["scenario"]["workload"] for r in rows},{"cpu","io"})
+        self.assertEqual({r["policy"] for r in rows},{"NONE","FIX_Q01"})
+        self.assertLessEqual(estimate(c,rows)["host_hours"],.18)
+        self.assertTrue(bounded_pilot_profile(c,rows))
+        unsafe=copy.deepcopy(rows);unsafe[0]["policy"]="FIX_HIGH"
+        self.assertFalse(bounded_pilot_profile(c,unsafe))
     def test_all_extensions_present(self):
         rows=generate(self.c);names={r["scenario"]["study"] for r in rows}
         self.assertTrue({"quiet","no_hysteresis","no_dwell","signal_total","unseen_cpu","isolated","second_host","attribution_stats_True","attribution_stats_False"}.issubset(names))
@@ -55,6 +94,22 @@ class ConfigMatrixTests(unittest.TestCase):
             with host_lock(Path(d)/"lock"):
                 with self.assertRaises(RuntimeError):
                     with host_lock(Path(d)/"lock"):pass
+
+
+class MetricsTests(unittest.TestCase):
+    def test_capture_uses_helper_source_call_window(self):
+        incident={"kind":"futex","valid":True,"start_ns":100,"end_ns":400,
+                  "helpers":[{"tid":10,"first_ns":150,"last_ns":350}]}
+        self.assertFalse(matches_source_futex(SimpleNamespace(syscall_id=202,tid=10,entry_ns=149),incident))
+        self.assertTrue(matches_source_futex(SimpleNamespace(syscall_id=202,tid=10,entry_ns=150),incident))
+        self.assertTrue(matches_source_futex(SimpleNamespace(syscall_id=202,tid=10,entry_ns=350),incident))
+        self.assertFalse(matches_source_futex(SimpleNamespace(syscall_id=202,tid=10,entry_ns=351),incident))
+        self.assertFalse(matches_source_futex(SimpleNamespace(syscall_id=202,tid=99,entry_ns=200),incident))
+    def test_bounded_pilot_rejects_sink_loss_but_reports_classified_abandonment(self):
+        counters={"reserve_failed":0,"pending":0,"undrained":0,"sink_drop":0,"sink_error":0,"abandoned":1}
+        self.assertEqual(bounded_pilot_loss_errors(counters),[])
+        counters["sink_error"]=28
+        self.assertTrue(bounded_pilot_loss_errors(counters))
 
 
 class SensorControllerTests(unittest.TestCase):

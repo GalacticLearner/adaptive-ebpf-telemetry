@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import itertools
+import math
 import random
 
 from .util import canonical_hash, seed_for
@@ -38,11 +39,12 @@ def schedule(config, seed, kind=None):
 def studies(c, selection="all"):
     definitions = []
     def add(name, policies, backgrounds=("high",), drifts=(True,), repetitions=8, **options):
-        for workload, background, drift in itertools.product(("cpu", "io"), backgrounds, drifts):
+        for workload, background, drift in itertools.product(c["experiment"]["workloads"], backgrounds, drifts):
             definitions.append(dict(study=name, policies=policies, workload=workload, background=background,
                                     drift=drift, repetitions=repetitions, **options))
     if selection in ("all", "primary"):
-        add("primary", CORE, backgrounds=("low", "high"), drifts=(False, True), repetitions=c["experiment"]["blocks"])
+        add("primary", tuple(c["experiment"]["policies"]), backgrounds=tuple(c["experiment"]["backgrounds"]),
+            drifts=tuple(c["experiment"]["drifts"]), repetitions=c["experiment"]["blocks"])
     if selection in ("all", "supplementary"):
         add("frontier", ("NONE", "FIX_Q01", "FIX_Q50", "FIX_MED", "FIX_HIGH"), drifts=(False, True))
         add("supervisor", ("NONE", *ADAPT, "TRIGGER_GATE", "TRIGGER_SWITCH"))
@@ -99,13 +101,47 @@ def generate(c, selection="all"):
     return rows
 
 
+def select_within_budget(c, rows, max_hours):
+    if not math.isfinite(max_hours) or max_hours <= 0:
+        raise ValueError("--max-hours must be a positive finite number")
+    scenarios = {}
+    for row in rows:
+        scenario = canonical_hash(row["scenario"])
+        blocks = scenarios.setdefault(scenario, {})
+        blocks.setdefault(row["block_id"], []).append(row)
+
+    budget_seconds = max_hours * 3600
+    selected = []
+    used_seconds = 0
+    block_groups = list(scenarios.values())
+    rounds = max((len(blocks) for blocks in block_groups), default=0)
+    for block_index in range(rounds):
+        for blocks in block_groups:
+            block_ids = list(blocks)
+            if block_index >= len(block_ids):
+                continue
+            block = blocks[block_ids[block_index]]
+            duration = sum(trial_seconds(c, row) for row in block)
+            if used_seconds + duration <= budget_seconds:
+                selected.extend(block)
+                used_seconds += duration
+    if not selected:
+        raise ValueError("--max-hours is too small for one complete matched block")
+    return selected
+
+
+def trial_seconds(c, row):
+    duration = row["scenario"].get("measure_s", c["workload"]["measure_s"])
+    return c["workload"]["warmup_s"] + duration + c["workload"]["drain_s"] + c["workload"]["cooldown_s"]
+
+
 def estimate(c, rows):
     peak = c["detail"]["calibrated_peak_rate"]
     rate = peak if peak is not None else c["detail"]["eligible_rate_bound"]
     raw = seconds = 0
     for row in rows:
         duration = row["scenario"].get("measure_s", c["workload"]["measure_s"])
-        seconds += c["workload"]["warmup_s"] + duration + c["workload"]["drain_s"] + c["workload"]["cooldown_s"]
+        seconds += trial_seconds(c, row)
         # Conservative q=1 for ALL policies, including quiet/attribution, plus warmup and drain.
         raw += (duration + c["workload"]["warmup_s"] + c["workload"]["drain_s"]) * rate * 88 + 4096
     counts = {}

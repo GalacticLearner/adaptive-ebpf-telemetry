@@ -7,17 +7,37 @@ import shutil
 
 from analysis.pipeline import find_attempts
 from analysis.validate import validate_attempt
-from .matrix import estimate, generate
+from .matrix import estimate, generate, select_within_budget
 from .trial import execute
 from .util import canonical_hash, host_lock, read_json, utc_now, write_json
 
 
-def run_campaign(c, output, *, study="primary", population="confirmatory", resume=False, limit=None):
+def bounded_pilot_profile(c, rows):
+    policies={row["policy"] for row in rows}
+    return (c["protocol"]["population"]=="pilot" and 0<c["workload"]["measure_s"]<=60 and
+            1<=c["experiment"]["blocks"]<=4 and len(rows)<=16 and
+            policies.issubset({"NONE","FIX_LOW_GATE","FIX_Q01","FIX_MED","SENT"}) and
+            "NONE" in policies and any(policy!="NONE" for policy in policies) and
+            0<c["workload"]["max_stage_bytes"]<=128*1024*1024 and c["detail"]["overflow"]=="count" and
+            not c["controller"]["supervisor"])
+
+
+def run_campaign(c, output, *, study="primary", population="confirmatory", resume=False, limit=None, max_hours=None):
+    if max_hours is not None and population!="pilot":
+        raise ValueError("--max-hours is only supported for exploratory pilot runs")
     output=Path(output)
     rows=generate(c,study)
+    if max_hours is not None:
+        rows=select_within_budget(c,rows,max_hours)
+    elif limit is not None:
+        rows=rows[:limit]
     estimate_=estimate(c,rows)
-    if estimate_["rate_is_calibrated"] is False and any(r["policy"]!="NONE" for r in rows):
+    bounded_pilot=population=="pilot" and bounded_pilot_profile(c,rows)
+    if estimate_["rate_is_calibrated"] is False and any(r["policy"]!="NONE" for r in rows) and not bounded_pilot:
         raise ValueError("calibrate aggregate peak event rate before experiments")
+    if population=="pilot" and not bounded_pilot:
+        raise ValueError("pilot without a calibrated peak is limited to the bounded fixed-policy profile")
+    budget_started=time.monotonic()
     output.mkdir(parents=True,exist_ok=True)
     registry=output/"campaign.json"
     if registry.exists():
@@ -34,6 +54,8 @@ def run_campaign(c, output, *, study="primary", population="confirmatory", resum
     from .util import ROOT
     with host_lock(ROOT/"state/host.lock"):
         for row in saved["rows"]:
+            if max_hours is not None and time.monotonic()-budget_started>=max_hours*3600:
+                break
             if limit is not None and completed>=limit:break
             assigned=row["scenario"].get("host","primary")
             if assigned!=c["host"].get("role","primary"):
@@ -47,12 +69,19 @@ def run_campaign(c, output, *, study="primary", population="confirmatory", resum
             if len(prior)>c["experiment"]["retries"]:
                 row["status"]="failed";continue
             for _ in range(len(prior),c["experiment"]["retries"]+1):
+                if max_hours is not None and time.monotonic()-budget_started>=max_hours*3600:
+                    row["status"]="planned"
+                    row["blocker"]="max-hours budget elapsed; no further attempt started"
+                    break
                 attempt,valid=execute(c,row,population,output)
                 row.setdefault("attempts",[]).append({"path":str(attempt),"valid":valid})
                 print(json.dumps({"trial":row["trial_id"],"attempt":str(attempt),"valid":valid,"at":utc_now()}),flush=True)
                 # Loss/overhead/misses are valid outcomes and never trigger retries.
                 if valid:row["status"]="valid";break
                 row["status"]="failed"
+            if max_hours is not None and time.monotonic()-budget_started>=max_hours*3600:
+                write_json(registry,saved)
+                break
             completed+=1
             write_json(registry,saved)
             # A fixed cooldown is applied to all treatments and retries.

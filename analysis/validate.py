@@ -35,6 +35,13 @@ def ledger(c):
     return errors
 
 
+def bounded_pilot_loss_errors(c):
+    fields=("reserve_failed","pending","undrained","sink_drop","sink_error")
+    if any(c.get(field,0) for field in fields):
+        return ["bounded pilot has nonzero sink/ring loss counters"]
+    return []
+
+
 def validate_attempt(path, *, require_seal=True):
     path = Path(path)
     errors, warnings = [], []
@@ -108,6 +115,10 @@ def validate_attempt(path, *, require_seal=True):
                 if not (path / filename).exists():
                     errors.append(f"missing {filename}")
             c = read_json(path / "counters.json"); schema(c, "counters"); errors.extend(ledger(c))
+            if m["population"]=="pilot" and cfg["protocol"]["population"]=="pilot":
+                errors.extend(bounded_pilot_loss_errors(c))
+                if c.get("abandoned",0):
+                    warnings.append(f"bounded pilot recorded {c['abandoned']} classified abandoned event(s)")
             raw = path / "detail.bin"
             if not raw.exists():
                 raw = path / "detail.bin.gz"

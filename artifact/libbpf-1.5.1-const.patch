@@ -1,0 +1,9 @@
+diff --git a/src/libbpf.c b/src/libbpf.c
+--- a/src/libbpf.c
++++ b/src/libbpf.c
+@@ -8181,1 +8181,1 @@
+-	char *res;
++	const char *res;
+@@ -11986,1 +11986,1 @@
+-			char *next_path;
++			const char *next_path;

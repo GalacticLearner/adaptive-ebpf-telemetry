@@ -28,32 +28,26 @@ workload:
   drift_io_bytes: 16384
   working_set_bytes: 67108864
   drift: false
-  drift_at_s: 120
-  warmup_s: 30
-  measure_s: 240
-  drain_s: 5
-  cooldown_s: 15
+  drift_at_s: 15
+  warmup_s: 5
+  measure_s: 30
+  drain_s: 2
+  cooldown_s: 2
   publish_ms: 100
   sample_units_every: 0
   input_seed: 200000
-  min_free_disk_bytes: 107374182400
+  min_free_disk_bytes: 16106127360
   disk_headroom: 0.2
-  max_stage_bytes: 1073741824
+  max_stage_bytes: 134217728
   max_ram_fraction: 0.2
 incidents:
   kind: futex
   durations_ms:
   - 10
-  - 25
-  - 50
-  - 100
-  - 250
-  - 500
-  - 1000
-  first_anchor_s: 15
+  first_anchor_s: 8
   spacing_s: 15
-  slots: 14
-  jitter_s: 2
+  slots: 1
+  jitter_s: 1
   timeout_ms: 1
   background: low
   background_duty: 0.5
@@ -125,7 +119,7 @@ controller:
   utilization_bands:
   - 0.5
   - 0.8
-  supervisor: true
+  supervisor: false
   hysteresis: true
   fallback: worst-training-ucl
   transition_horizon_s: 1
@@ -133,32 +127,25 @@ controller:
 experiment:
   policies:
   - NONE
-  - SENT
-  - FIX_LOW_GATE
-  - FIX_MED
-  - FIX_HIGH
-  - ADAPT_GATE
-  - ADAPT_SWITCH
+  - FIX_Q01
   workloads:
   - cpu
   - io
   backgrounds:
   - low
-  - high
   drifts:
   - false
-  - true
-  blocks: 8
-  max_blocks: 30
+  blocks: 4
+  max_blocks: 4
   seed: 200000
   quiet_measure_s: 1200
   quiet_repetitions: 5
-  retries: 2
+  retries: 0
   vm_steal_threshold: 0.02
   external_cpu_threshold: 0.05
   noise_fraction: 0.1
   max_batch_hours: 6
-  include_second_host: true
+  include_second_host: false
 analysis:
   endpoints:
   - throughput_loss

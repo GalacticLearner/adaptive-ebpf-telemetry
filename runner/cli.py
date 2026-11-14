@@ -21,7 +21,13 @@ def parser():
         sub.add_argument("--output",type=Path)
         sub.add_argument("--dry-run",action="store_true")
         if name in ("run","pilot"):
-            sub.add_argument("--resume",action="store_true");sub.add_argument("--limit",type=int)
+            sub.add_argument("--resume",action="store_true")
+            if name=="pilot":
+                budget=sub.add_mutually_exclusive_group()
+                budget.add_argument("--limit",type=int,help="maximum number of trials")
+                budget.add_argument("--max-hours",type=float,help="nominal time budget; selects complete matched blocks")
+            else:
+                sub.add_argument("--limit",type=int,help="maximum number of trials")
         if name in ("run","pilot","estimate-matrix"):
             sub.add_argument("--study",choices=("all","primary","supplementary","robustness"),default="primary")
             sub.add_argument("--seed",type=int)
@@ -36,6 +42,8 @@ def parser():
             sub.add_argument("--collect",action="store_true")
             sub.add_argument("--split",choices=("training","validation"),default="training")
             sub.add_argument("--limit",type=int)
+            sub.add_argument("--include-io",action="store_true",help="include CPU/I/O NONE and FIX_LOW_GATE rate trials")
+            sub.add_argument("--exclude-invalid",action="store_true",help="rate derivation only: omit invalid attempts and record them in the result")
         if name=="freeze":sub.add_argument("--preregistration",type=Path,default=ROOT/"state/freeze.json")
     return p
 
@@ -81,7 +89,8 @@ def main(argv=None):
                 from .freeze import verify_freeze
                 verify_freeze(c,ROOT/"state/freeze.json")
             population="pilot" if name=="pilot" else "confirmatory" if args.study=="primary" else "robustness"
-            result=run_campaign(c,args.output or ROOT/"data"/population,study=args.study,population=population,resume=args.resume,limit=args.limit)
+            result=run_campaign(c,args.output or ROOT/"data"/population,study=args.study,population=population,
+                                resume=args.resume,limit=args.limit,max_hours=getattr(args,"max_hours",None))
             print(json.dumps({"rows":len(result["rows"]),"statuses":{s:sum(r["status"]==s for r in result["rows"]) for s in ("valid","failed","planned","blocked")}},indent=2));return 0
         if name=="freeze":
             from .freeze import freeze
@@ -125,8 +134,17 @@ def main(argv=None):
 
 def describe(args,c):
     if args.command in ("run","pilot"):
-        from .matrix import estimate,generate
-        return estimate(c,generate(c,args.study))
+        from .matrix import estimate,generate,select_within_budget
+        rows=generate(c,args.study)
+        if args.limit is not None:rows=rows[:args.limit]
+        max_hours=getattr(args,"max_hours",None)
+        if max_hours is not None:
+            rows=select_within_budget(c,rows,max_hours)
+            result=estimate(c,rows)
+            result["max_hours_budget"]=max_hours
+            result["selection_note"]="Complete matched blocks only; elapsed-time enforcement stops new attempts at trial boundaries. This subset is exploratory, not confirmatory."
+            return result
+        return estimate(c,rows)
     return {"doctor":"Collect platform/feature diagnostics; never treats discovery as smoke success",
             "build":"make build: target BTF,Clang BPF,skeletons,C agent/workloads",
             "test":"Run requested portable or real Linux privileged checks",

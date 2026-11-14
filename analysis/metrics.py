@@ -88,6 +88,13 @@ def throughput(app, start, end):
             "boundary_resolution_ns": max_gap, "method": "linear interpolation of 100ms cumulative samples"}
 
 
+def matches_source_futex(event, incident):
+    if incident["kind"] != "futex" or not incident["valid"] or event.syscall_id != 202:
+        return False
+    return any(helper["tid"] == event.tid and helper["first_ns"] <= event.entry_ns <= helper["last_ns"]
+               for helper in incident["helpers"])
+
+
 def measure_attempt(path):
     path = Path(path)
     manifest = read_json(path / "manifest.json")
@@ -109,10 +116,8 @@ def measure_attempt(path):
     if source.exists():
         for event, receipt in records(source):
             for i in incidents:
-                if i["kind"] != "futex" or not i["valid"]:
-                    continue
                 tids = {h["tid"] for h in i["helpers"]}
-                if event.syscall_id != 202 or event.tid not in tids or not i["start_ns"] <= event.entry_ns <= i["end_ns"]:
+                if event.tid not in tids or not i["start_ns"] <= event.entry_ns <= i["end_ns"] or not matches_source_futex(event, i):
                     continue
                 m = captured[i["episode_id"]]
                 m["pairs"] += 1
