@@ -28,23 +28,29 @@ if __name__=="__main__":
         row.update(status="done" if step in portable else "blocked",started_at=row["started_at"] or now,
             finished_at=now if step in portable else None,commit=source["commit"],artifacts=paths,
             checks=["python -m runner test --unprivileged","portable C/BPF target compile checks","synthetic sealed-attempt replay"],
-            blocker=None if step in portable else "Missing v4 review/full-text audit" if step in literature else "Latest native C execution blocked by Windows Application Control; real integration also requires Linux" if step=="P4.4" else "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+            blocker=None if step in portable else "Missing v4 review/full-text audit" if step in literature else "Requires full Linux adaptive-policy transition and failure-integration evidence" if step=="P4.4" else "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
             limitations=["Done means the independent software/draft deliverable only; no kernel/performance success implied"] if step in portable else ["Sources/checks prepared; real step acceptance evidence is pending"],
             evidence_hash=canonical_hash({p:digest(ROOT/p) for p in paths}))
     state.update(source_commit=source["commit"],updated_at=now,current_phase=1)
     for phase in range(10):
         state["gates"][f"G{phase}"]={"status":"blocked","reason":
             "Scaffolding/requirements mapped; mandatory v4 source audit missing" if phase==0 else
-            "Linux host explicitly unavailable; portable fallback complete" if phase==1 else
+            "Linux host discovery and privileged smoke passed; broader readiness, calibration, and performance gates remain" if phase==1 else
             "Kernel/application empirical acceptance evidence unavailable; synthetic checks do not satisfy this gate"}
     write_json(ROOT/"state/progress.json",state);render(state)
     c=load_config();rows=generate(c)
-    for r in rows:r.update(status="blocked",blocker="independent secondary Linux host unavailable" if r["scenario"].get("host")=="secondary" else "primary Linux test host unavailable")
+    for r in rows:r.update(status="blocked",blocker="Independent secondary Linux host required" if r["scenario"].get("host")=="secondary" else "Requires resolved calibration, protocol freeze, and confirmatory campaign")
     write_json(ROOT/"state/campaign_inventory.json",{"schema_version":1,"real_attempts":0,"valid_real_trials":0,
+        "scope":"planned confirmatory registry; pilot attempts are tracked separately",
         "estimate":estimate(c,rows),"rows":rows,"calibration_excluded_from_estimate":True})
     counts={s:sum(r["status"]==s for r in state["steps"].values()) for s in ("done","doing","blocked","todo")}
+    pilot=read_json(ROOT/"results/pilot/bounded-q01-4blocks-20261114-001/results.json")
+    pilot_attempts=pilot.get("attempts",[])
     write_json(ROOT/"state/status_summary.json",{"steps":counts,"gates_passed":0,"gates_total":10,
-        "code_status":"host-independent implementation checked; Linux execution and empirical validation pending",
-        "real_primary_trials":{"valid":0,"planned":672},"real_all_registry_trials":{"valid":0,"planned":len(rows)},
-        "research_conclusion":"No empirical hypothesis support or publication-readiness claim"})
+        "code_status":"Linux build and privileged smoke passed; validated pilot attempts retained; confirmatory matrix pending",
+        "pilot_trials":{"valid":sum(bool(a.get("valid")) for a in pilot_attempts),"total":len(pilot_attempts),
+            "noise_flagged":sum(bool(a.get("warnings")) for a in pilot_attempts)},
+        "real_primary_trials":{"valid":0,"planned":672,"scope":"confirmatory matrix; pilot excluded"},
+        "real_all_registry_trials":{"valid":0,"planned":len(rows),"scope":"confirmatory registry; pilot excluded"},
+        "research_conclusion":"Pilot results are exploratory; adaptive-policy and formal budget conclusions remain inconclusive"})
     print(counts)

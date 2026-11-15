@@ -6,7 +6,7 @@
       "status": "blocked"
     },
     "G1": {
-      "reason": "Linux host explicitly unavailable; portable fallback complete",
+      "reason": "Linux host discovery and privileged smoke passed; broader readiness, calibration, and performance gates remain",
       "status": "blocked"
     },
     "G2": {
@@ -44,7 +44,7 @@
   },
   "protocol_version": "aet-v1",
   "schema_version": 1,
-  "source_commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+  "source_commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
   "steps": {
     "P0.1": {
       "artifacts": [
@@ -61,9 +61,9 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [],
-      "evidence_hash": "4766e3bc898ec13813cccc6d294e704b38750049a7e201d9f48b7e45e9c448c1",
+      "evidence_hash": "2d815509bf3c0df3880773287b97947e9b2e616e508e16ae2d6b1027378aab96",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -87,10 +87,10 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [],
-      "evidence_hash": "4766e3bc898ec13813cccc6d294e704b38750049a7e201d9f48b7e45e9c448c1",
-      "finished_at": "2026-10-30T19:00:58.150142+00:00",
+      "evidence_hash": "2d815509bf3c0df3880773287b97947e9b2e616e508e16ae2d6b1027378aab96",
+      "finished_at": "2026-11-15T10:47:59.675911+00:00",
       "limitations": [
         "Done means the independent software/draft deliverable only; no kernel/performance success implied"
       ],
@@ -113,9 +113,9 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [],
-      "evidence_hash": "4766e3bc898ec13813cccc6d294e704b38750049a7e201d9f48b7e45e9c448c1",
+      "evidence_hash": "2d815509bf3c0df3880773287b97947e9b2e616e508e16ae2d6b1027378aab96",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -139,10 +139,10 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [],
-      "evidence_hash": "4766e3bc898ec13813cccc6d294e704b38750049a7e201d9f48b7e45e9c448c1",
-      "finished_at": "2026-10-30T19:00:58.150142+00:00",
+      "evidence_hash": "2d815509bf3c0df3880773287b97947e9b2e616e508e16ae2d6b1027378aab96",
+      "finished_at": "2026-11-15T10:47:59.675911+00:00",
       "limitations": [
         "Done means the independent software/draft deliverable only; no kernel/performance success implied"
       ],
@@ -158,20 +158,20 @@
         "state/evidence/unprivileged-final-classified.json",
         "state/evidence/c-compile-final.json"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P0.1",
         "P0.2",
         "P0.3",
         "P0.4"
       ],
-      "evidence_hash": "03ab3752e7c468522fa62198de3d09376f2881a872aee6ecb63cfe9e0fe0f49a",
+      "evidence_hash": "24cc7ff0f04ba725edf33f26d56ba147fface5f1f5b4828869de77e01356fea5",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -188,20 +188,20 @@
         "state/evidence/unprivileged-final-classified.json",
         "state/evidence/c-compile-final.json"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P0.1",
         "P0.2",
         "P0.3",
         "P0.4"
       ],
-      "evidence_hash": "03ab3752e7c468522fa62198de3d09376f2881a872aee6ecb63cfe9e0fe0f49a",
+      "evidence_hash": "24cc7ff0f04ba725edf33f26d56ba147fface5f1f5b4828869de77e01356fea5",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -218,20 +218,20 @@
         "state/evidence/unprivileged-final-classified.json",
         "state/evidence/c-compile-final.json"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P0.1",
         "P0.2",
         "P0.3",
         "P0.4"
       ],
-      "evidence_hash": "03ab3752e7c468522fa62198de3d09376f2881a872aee6ecb63cfe9e0fe0f49a",
+      "evidence_hash": "24cc7ff0f04ba725edf33f26d56ba147fface5f1f5b4828869de77e01356fea5",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -254,15 +254,15 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P0.1",
         "P0.2",
         "P0.3",
         "P0.4"
       ],
-      "evidence_hash": "03ab3752e7c468522fa62198de3d09376f2881a872aee6ecb63cfe9e0fe0f49a",
-      "finished_at": "2026-10-30T19:00:58.150142+00:00",
+      "evidence_hash": "24cc7ff0f04ba725edf33f26d56ba147fface5f1f5b4828869de77e01356fea5",
+      "finished_at": "2026-11-15T10:47:59.675911+00:00",
       "limitations": [
         "Done means the independent software/draft deliverable only; no kernel/performance success implied"
       ],
@@ -276,20 +276,20 @@
         "src/workloads/known_count.c",
         "runner/trial.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P1.1",
         "P1.2",
         "P1.3",
         "P1.4"
       ],
-      "evidence_hash": "b7ca82b8804ce86407860c8dc599a3e7e7d566b3c69ec8688be6ab0cb536c195",
+      "evidence_hash": "ff0a656ae4ffda7212b4285286226115b2daddc615f7e86bf0b16a03b5541003",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -304,20 +304,20 @@
         "src/workloads/known_count.c",
         "runner/trial.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P1.1",
         "P1.2",
         "P1.3",
         "P1.4"
       ],
-      "evidence_hash": "b7ca82b8804ce86407860c8dc599a3e7e7d566b3c69ec8688be6ab0cb536c195",
+      "evidence_hash": "ff0a656ae4ffda7212b4285286226115b2daddc615f7e86bf0b16a03b5541003",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -332,20 +332,20 @@
         "src/workloads/known_count.c",
         "runner/trial.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P1.1",
         "P1.2",
         "P1.3",
         "P1.4"
       ],
-      "evidence_hash": "b7ca82b8804ce86407860c8dc599a3e7e7d566b3c69ec8688be6ab0cb536c195",
+      "evidence_hash": "ff0a656ae4ffda7212b4285286226115b2daddc615f7e86bf0b16a03b5541003",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -360,20 +360,20 @@
         "src/workloads/known_count.c",
         "runner/trial.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P1.1",
         "P1.2",
         "P1.3",
         "P1.4"
       ],
-      "evidence_hash": "b7ca82b8804ce86407860c8dc599a3e7e7d566b3c69ec8688be6ab0cb536c195",
+      "evidence_hash": "ff0a656ae4ffda7212b4285286226115b2daddc615f7e86bf0b16a03b5541003",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -388,20 +388,20 @@
         "src/workloads/known_count.c",
         "runner/trial.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P1.1",
         "P1.2",
         "P1.3",
         "P1.4"
       ],
-      "evidence_hash": "b7ca82b8804ce86407860c8dc599a3e7e7d566b3c69ec8688be6ab0cb536c195",
+      "evidence_hash": "ff0a656ae4ffda7212b4285286226115b2daddc615f7e86bf0b16a03b5541003",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -418,13 +418,13 @@
         "src/agent/sink.c",
         "analysis/wire.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P2.1",
         "P2.2",
@@ -449,13 +449,13 @@
         "src/agent/sink.c",
         "analysis/wire.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P2.1",
         "P2.2",
@@ -480,13 +480,13 @@
         "src/agent/sink.c",
         "analysis/wire.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P2.1",
         "P2.2",
@@ -511,13 +511,13 @@
         "src/agent/sink.c",
         "analysis/wire.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P2.1",
         "P2.2",
@@ -542,13 +542,13 @@
         "src/agent/sink.c",
         "analysis/wire.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P2.1",
         "P2.2",
@@ -573,13 +573,13 @@
         "src/agent/sink.c",
         "analysis/wire.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P2.1",
         "P2.2",
@@ -604,13 +604,13 @@
         "runner/reference.py",
         "tests/test_core.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P3.1",
         "P3.2",
@@ -619,7 +619,7 @@
         "P3.5",
         "P3.6"
       ],
-      "evidence_hash": "4d206feeac2ce620173467c500b140edd0c8c2dd4b96180fab633cb56e6d4e11",
+      "evidence_hash": "dd0284ae4714dcb5a5376e011331c53ac845560efd0f0623423b08b65b61f900",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -636,13 +636,13 @@
         "runner/reference.py",
         "tests/test_core.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P3.1",
         "P3.2",
@@ -651,7 +651,7 @@
         "P3.5",
         "P3.6"
       ],
-      "evidence_hash": "4d206feeac2ce620173467c500b140edd0c8c2dd4b96180fab633cb56e6d4e11",
+      "evidence_hash": "dd0284ae4714dcb5a5376e011331c53ac845560efd0f0623423b08b65b61f900",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -674,7 +674,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P3.1",
         "P3.2",
@@ -683,8 +683,8 @@
         "P3.5",
         "P3.6"
       ],
-      "evidence_hash": "4d206feeac2ce620173467c500b140edd0c8c2dd4b96180fab633cb56e6d4e11",
-      "finished_at": "2026-10-30T19:00:58.150142+00:00",
+      "evidence_hash": "dd0284ae4714dcb5a5376e011331c53ac845560efd0f0623423b08b65b61f900",
+      "finished_at": "2026-11-15T10:47:59.675911+00:00",
       "limitations": [
         "Done means the independent software/draft deliverable only; no kernel/performance success implied"
       ],
@@ -700,13 +700,13 @@
         "runner/reference.py",
         "tests/test_core.py"
       ],
-      "blocker": "Latest native C execution blocked by Windows Application Control; real integration also requires Linux",
+      "blocker": "Requires full Linux adaptive-policy transition and failure-integration evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P3.1",
         "P3.2",
@@ -715,7 +715,7 @@
         "P3.5",
         "P3.6"
       ],
-      "evidence_hash": "4d206feeac2ce620173467c500b140edd0c8c2dd4b96180fab633cb56e6d4e11",
+      "evidence_hash": "dd0284ae4714dcb5a5376e011331c53ac845560efd0f0623423b08b65b61f900",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -732,13 +732,13 @@
         "runner/reference.py",
         "tests/test_core.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P3.1",
         "P3.2",
@@ -747,7 +747,7 @@
         "P3.5",
         "P3.6"
       ],
-      "evidence_hash": "4d206feeac2ce620173467c500b140edd0c8c2dd4b96180fab633cb56e6d4e11",
+      "evidence_hash": "dd0284ae4714dcb5a5376e011331c53ac845560efd0f0623423b08b65b61f900",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -763,13 +763,13 @@
         "runner/collect.py",
         "artifact/CALIBRATION.md"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P4.1",
         "P4.2",
@@ -777,7 +777,7 @@
         "P4.4",
         "P4.5"
       ],
-      "evidence_hash": "eaf99c6abc6fd2261cc4b09e433e56082daaedd00e54954be9177e8e3a1d9363",
+      "evidence_hash": "95e9018919d1776a900780bf0b5c141b30716ca1cd4f99eddd9169a3f44ecb11",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -793,13 +793,13 @@
         "runner/collect.py",
         "artifact/CALIBRATION.md"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P4.1",
         "P4.2",
@@ -807,7 +807,7 @@
         "P4.4",
         "P4.5"
       ],
-      "evidence_hash": "eaf99c6abc6fd2261cc4b09e433e56082daaedd00e54954be9177e8e3a1d9363",
+      "evidence_hash": "95e9018919d1776a900780bf0b5c141b30716ca1cd4f99eddd9169a3f44ecb11",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -823,13 +823,13 @@
         "runner/collect.py",
         "artifact/CALIBRATION.md"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P4.1",
         "P4.2",
@@ -837,7 +837,7 @@
         "P4.4",
         "P4.5"
       ],
-      "evidence_hash": "eaf99c6abc6fd2261cc4b09e433e56082daaedd00e54954be9177e8e3a1d9363",
+      "evidence_hash": "95e9018919d1776a900780bf0b5c141b30716ca1cd4f99eddd9169a3f44ecb11",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -853,13 +853,13 @@
         "runner/collect.py",
         "artifact/CALIBRATION.md"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P4.1",
         "P4.2",
@@ -867,7 +867,7 @@
         "P4.4",
         "P4.5"
       ],
-      "evidence_hash": "eaf99c6abc6fd2261cc4b09e433e56082daaedd00e54954be9177e8e3a1d9363",
+      "evidence_hash": "95e9018919d1776a900780bf0b5c141b30716ca1cd4f99eddd9169a3f44ecb11",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -883,13 +883,13 @@
         "runner/collect.py",
         "artifact/CALIBRATION.md"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P4.1",
         "P4.2",
@@ -897,7 +897,7 @@
         "P4.4",
         "P4.5"
       ],
-      "evidence_hash": "eaf99c6abc6fd2261cc4b09e433e56082daaedd00e54954be9177e8e3a1d9363",
+      "evidence_hash": "95e9018919d1776a900780bf0b5c141b30716ca1cd4f99eddd9169a3f44ecb11",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -913,13 +913,13 @@
         "runner/collect.py",
         "artifact/CALIBRATION.md"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P4.1",
         "P4.2",
@@ -927,7 +927,7 @@
         "P4.4",
         "P4.5"
       ],
-      "evidence_hash": "eaf99c6abc6fd2261cc4b09e433e56082daaedd00e54954be9177e8e3a1d9363",
+      "evidence_hash": "95e9018919d1776a900780bf0b5c141b30716ca1cd4f99eddd9169a3f44ecb11",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -943,13 +943,13 @@
         "runner/freeze.py",
         "state/campaign_inventory.json"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P5.1",
         "P5.2",
@@ -958,7 +958,7 @@
         "P5.5",
         "P5.6"
       ],
-      "evidence_hash": "4d9c66058d147f81dd888e0c01f4d50a1dda9f6ea2bdc14280668a568f83db4c",
+      "evidence_hash": "755067f5fba4e49238856be16d889246f37d2a15972962f063e32e671ddece5d",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -980,7 +980,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P5.1",
         "P5.2",
@@ -989,8 +989,8 @@
         "P5.5",
         "P5.6"
       ],
-      "evidence_hash": "4d9c66058d147f81dd888e0c01f4d50a1dda9f6ea2bdc14280668a568f83db4c",
-      "finished_at": "2026-10-30T19:00:58.150142+00:00",
+      "evidence_hash": "755067f5fba4e49238856be16d889246f37d2a15972962f063e32e671ddece5d",
+      "finished_at": "2026-11-15T10:47:59.675911+00:00",
       "limitations": [
         "Done means the independent software/draft deliverable only; no kernel/performance success implied"
       ],
@@ -1005,13 +1005,13 @@
         "runner/freeze.py",
         "state/campaign_inventory.json"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P5.1",
         "P5.2",
@@ -1020,7 +1020,7 @@
         "P5.5",
         "P5.6"
       ],
-      "evidence_hash": "4d9c66058d147f81dd888e0c01f4d50a1dda9f6ea2bdc14280668a568f83db4c",
+      "evidence_hash": "755067f5fba4e49238856be16d889246f37d2a15972962f063e32e671ddece5d",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1036,13 +1036,13 @@
         "runner/freeze.py",
         "state/campaign_inventory.json"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P5.1",
         "P5.2",
@@ -1051,7 +1051,7 @@
         "P5.5",
         "P5.6"
       ],
-      "evidence_hash": "4d9c66058d147f81dd888e0c01f4d50a1dda9f6ea2bdc14280668a568f83db4c",
+      "evidence_hash": "755067f5fba4e49238856be16d889246f37d2a15972962f063e32e671ddece5d",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1067,13 +1067,13 @@
         "runner/freeze.py",
         "state/campaign_inventory.json"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P5.1",
         "P5.2",
@@ -1082,7 +1082,7 @@
         "P5.5",
         "P5.6"
       ],
-      "evidence_hash": "4d9c66058d147f81dd888e0c01f4d50a1dda9f6ea2bdc14280668a568f83db4c",
+      "evidence_hash": "755067f5fba4e49238856be16d889246f37d2a15972962f063e32e671ddece5d",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1098,13 +1098,13 @@
         "runner/freeze.py",
         "state/campaign_inventory.json"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P5.1",
         "P5.2",
@@ -1113,7 +1113,7 @@
         "P5.5",
         "P5.6"
       ],
-      "evidence_hash": "4d9c66058d147f81dd888e0c01f4d50a1dda9f6ea2bdc14280668a568f83db4c",
+      "evidence_hash": "755067f5fba4e49238856be16d889246f37d2a15972962f063e32e671ddece5d",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1131,13 +1131,13 @@
         "analysis/figures.py",
         "analysis/timeline.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P6.1",
         "P6.2",
@@ -1146,7 +1146,7 @@
         "P6.5",
         "P6.6"
       ],
-      "evidence_hash": "7e559aa6550d63c561d70759f082617e920bc16d63e113d6d8917bc7d9d0f236",
+      "evidence_hash": "8f08537ed7f8f4cc4c6aa5a900ce71f8176494747b78d948d4b45cd87b5fcc90",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1164,13 +1164,13 @@
         "analysis/figures.py",
         "analysis/timeline.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P6.1",
         "P6.2",
@@ -1179,7 +1179,7 @@
         "P6.5",
         "P6.6"
       ],
-      "evidence_hash": "7e559aa6550d63c561d70759f082617e920bc16d63e113d6d8917bc7d9d0f236",
+      "evidence_hash": "8f08537ed7f8f4cc4c6aa5a900ce71f8176494747b78d948d4b45cd87b5fcc90",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1197,13 +1197,13 @@
         "analysis/figures.py",
         "analysis/timeline.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P6.1",
         "P6.2",
@@ -1212,7 +1212,7 @@
         "P6.5",
         "P6.6"
       ],
-      "evidence_hash": "7e559aa6550d63c561d70759f082617e920bc16d63e113d6d8917bc7d9d0f236",
+      "evidence_hash": "8f08537ed7f8f4cc4c6aa5a900ce71f8176494747b78d948d4b45cd87b5fcc90",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1230,13 +1230,13 @@
         "analysis/figures.py",
         "analysis/timeline.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P6.1",
         "P6.2",
@@ -1245,7 +1245,7 @@
         "P6.5",
         "P6.6"
       ],
-      "evidence_hash": "7e559aa6550d63c561d70759f082617e920bc16d63e113d6d8917bc7d9d0f236",
+      "evidence_hash": "8f08537ed7f8f4cc4c6aa5a900ce71f8176494747b78d948d4b45cd87b5fcc90",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1263,13 +1263,13 @@
         "analysis/figures.py",
         "analysis/timeline.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P6.1",
         "P6.2",
@@ -1278,7 +1278,7 @@
         "P6.5",
         "P6.6"
       ],
-      "evidence_hash": "7e559aa6550d63c561d70759f082617e920bc16d63e113d6d8917bc7d9d0f236",
+      "evidence_hash": "8f08537ed7f8f4cc4c6aa5a900ce71f8176494747b78d948d4b45cd87b5fcc90",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1296,13 +1296,13 @@
         "analysis/figures.py",
         "analysis/timeline.py"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P6.1",
         "P6.2",
@@ -1311,7 +1311,7 @@
         "P6.5",
         "P6.6"
       ],
-      "evidence_hash": "7e559aa6550d63c561d70759f082617e920bc16d63e113d6d8917bc7d9d0f236",
+      "evidence_hash": "8f08537ed7f8f4cc4c6aa5a900ce71f8176494747b78d948d4b45cd87b5fcc90",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1333,7 +1333,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P7.1",
         "P7.2",
@@ -1342,8 +1342,8 @@
         "P7.5",
         "P7.6"
       ],
-      "evidence_hash": "4d25901f6fca0c559673a57d53615138b829854c28ccd29a1fc6c05c071a760a",
-      "finished_at": "2026-10-30T19:00:58.150142+00:00",
+      "evidence_hash": "2258ce2b63582f6b47bb71a8f0ceb913848f34c5679da7ab2437a22005300488",
+      "finished_at": "2026-11-15T10:47:59.675911+00:00",
       "limitations": [
         "Done means the independent software/draft deliverable only; no kernel/performance success implied"
       ],
@@ -1358,13 +1358,13 @@
         "paper/claim_evidence.csv",
         "research/evidence_access.csv"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P7.1",
         "P7.2",
@@ -1373,7 +1373,7 @@
         "P7.5",
         "P7.6"
       ],
-      "evidence_hash": "4d25901f6fca0c559673a57d53615138b829854c28ccd29a1fc6c05c071a760a",
+      "evidence_hash": "2258ce2b63582f6b47bb71a8f0ceb913848f34c5679da7ab2437a22005300488",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1395,7 +1395,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P7.1",
         "P7.2",
@@ -1404,7 +1404,7 @@
         "P7.5",
         "P7.6"
       ],
-      "evidence_hash": "4d25901f6fca0c559673a57d53615138b829854c28ccd29a1fc6c05c071a760a",
+      "evidence_hash": "2258ce2b63582f6b47bb71a8f0ceb913848f34c5679da7ab2437a22005300488",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1420,13 +1420,13 @@
         "paper/claim_evidence.csv",
         "research/evidence_access.csv"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P7.1",
         "P7.2",
@@ -1435,7 +1435,7 @@
         "P7.5",
         "P7.6"
       ],
-      "evidence_hash": "4d25901f6fca0c559673a57d53615138b829854c28ccd29a1fc6c05c071a760a",
+      "evidence_hash": "2258ce2b63582f6b47bb71a8f0ceb913848f34c5679da7ab2437a22005300488",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1451,13 +1451,13 @@
         "paper/claim_evidence.csv",
         "research/evidence_access.csv"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P7.1",
         "P7.2",
@@ -1466,7 +1466,7 @@
         "P7.5",
         "P7.6"
       ],
-      "evidence_hash": "4d25901f6fca0c559673a57d53615138b829854c28ccd29a1fc6c05c071a760a",
+      "evidence_hash": "2258ce2b63582f6b47bb71a8f0ceb913848f34c5679da7ab2437a22005300488",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1483,13 +1483,13 @@
         "state/evidence/clean-replay.json",
         "artifact/RELEASE.md"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P8.1",
         "P8.2",
@@ -1497,7 +1497,7 @@
         "P8.4",
         "P8.5"
       ],
-      "evidence_hash": "a23815ae9f3530921b4590781839cf1ab7890a97b4af6a7e3f3e0736199463f3",
+      "evidence_hash": "889f78dc00524690dd1fa0c15587f4ec9fd8368ccdff9a6999183d64d0c6a0d7",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1514,13 +1514,13 @@
         "state/evidence/clean-replay.json",
         "artifact/RELEASE.md"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P8.1",
         "P8.2",
@@ -1528,7 +1528,7 @@
         "P8.4",
         "P8.5"
       ],
-      "evidence_hash": "a23815ae9f3530921b4590781839cf1ab7890a97b4af6a7e3f3e0736199463f3",
+      "evidence_hash": "889f78dc00524690dd1fa0c15587f4ec9fd8368ccdff9a6999183d64d0c6a0d7",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1551,7 +1551,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P8.1",
         "P8.2",
@@ -1559,8 +1559,8 @@
         "P8.4",
         "P8.5"
       ],
-      "evidence_hash": "a23815ae9f3530921b4590781839cf1ab7890a97b4af6a7e3f3e0736199463f3",
-      "finished_at": "2026-10-30T19:00:58.150142+00:00",
+      "evidence_hash": "889f78dc00524690dd1fa0c15587f4ec9fd8368ccdff9a6999183d64d0c6a0d7",
+      "finished_at": "2026-11-15T10:47:59.675911+00:00",
       "limitations": [
         "Done means the independent software/draft deliverable only; no kernel/performance success implied"
       ],
@@ -1576,13 +1576,13 @@
         "state/evidence/clean-replay.json",
         "artifact/RELEASE.md"
       ],
-      "blocker": "Requires real authorized Linux/kernel measurements or dependent empirical evidence",
+      "blocker": "Requires outstanding phase-specific Linux acceptance evidence or dependent empirical evidence",
       "checks": [
         "python -m runner test --unprivileged",
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P8.1",
         "P8.2",
@@ -1590,7 +1590,7 @@
         "P8.4",
         "P8.5"
       ],
-      "evidence_hash": "a23815ae9f3530921b4590781839cf1ab7890a97b4af6a7e3f3e0736199463f3",
+      "evidence_hash": "889f78dc00524690dd1fa0c15587f4ec9fd8368ccdff9a6999183d64d0c6a0d7",
       "finished_at": null,
       "limitations": [
         "Sources/checks prepared; real step acceptance evidence is pending"
@@ -1613,7 +1613,7 @@
         "portable C/BPF target compile checks",
         "synthetic sealed-attempt replay"
       ],
-      "commit": "a4a9b8a193aeb9c01b9401617b92e96ba3505db7",
+      "commit": "e475f7b6dc71ac4ebd025d0814c46f5afe8fdad4",
       "depends_on": [
         "P8.1",
         "P8.2",
@@ -1621,8 +1621,8 @@
         "P8.4",
         "P8.5"
       ],
-      "evidence_hash": "a23815ae9f3530921b4590781839cf1ab7890a97b4af6a7e3f3e0736199463f3",
-      "finished_at": "2026-10-30T19:00:58.150142+00:00",
+      "evidence_hash": "889f78dc00524690dd1fa0c15587f4ec9fd8368ccdff9a6999183d64d0c6a0d7",
+      "finished_at": "2026-11-15T10:47:59.675911+00:00",
       "limitations": [
         "Done means the independent software/draft deliverable only; no kernel/performance success implied"
       ],
@@ -1631,5 +1631,5 @@
       "title": "Final status"
     }
   },
-  "updated_at": "2026-10-30T19:00:58.150142+00:00"
+  "updated_at": "2026-11-15T10:47:59.675911+00:00"
 }

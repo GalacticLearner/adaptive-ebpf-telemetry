@@ -26,7 +26,8 @@ def update(step, status, *, artifacts=(), checks=(), blocker=None, limitations=(
 def render(state=None):
     state=state or read_json(ROOT/"state/progress.json")
     lines=["# Plan progress", "", f"Updated: {state['updated_at']}", "",
-           "Status reflects evidence, not source-code presence. Windows cannot satisfy Linux kernel/performance gates.", ""]
+           "Status reflects acceptance evidence, not source-code presence. Linux implementation and privileged smoke are recorded; the full confirmatory adaptive-policy campaign remains pending.",
+           "The saved pilot contains 16 valid attempts (four paired blocks per workload, NONE versus FIX_Q01); all carry an external-CPU noise warning. See `research/claims.md` for measured outcomes and scope.", ""]
     for phase in range(10):
         lines.extend([f"## Phase {phase}","","| Step | Status | Work / blocker |","|---|---|---|"])
         for key,row in state["steps"].items():

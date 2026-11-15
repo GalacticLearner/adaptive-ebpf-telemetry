@@ -1,15 +1,15 @@
-# Issues
+# Open issues and evidence boundaries
 
 | ID | Status | Evidence | Consequence |
 |---|---|---|---|
-| I001 | Open | `wsl --status` and `wsl --list --verbose`: WSL not installed; platform Windows | No real BPF build/load, Linux workload, calibration, campaign or empirical results can be verified on this host. |
-| I002 | Open | Initial inventory contains only three research sources | `novelty_review_v3.md`, `novelty_review_v4.md`, `adaptive_ebpf_research.zip` missing. Prior-art gate remains limited. |
-| I003 | Resolved | Initial `git status` failed: no repository | Initialized a new Git repository without replacing supplied files. |
-| I004 | Resolved | Initial venv ensurepip failed in restricted execution; authorized retry succeeded | Project dependencies use `.venv/`; no system package changes. |
-| I005 | Open | Direct DOI retrieval returned errors/403 for several closest papers | Record access limitations; do not infer full-paper semantics from abstracts. |
-| I006 | Resolved | Initial portable tests could not access protected temporary files/execute the compiled checker | Authorized retry passed; no Windows security policy was changed. Initial failure log retained. |
-| I007 | Resolved | Full matrix initially supplied duplicate drift argument for secondary quiet study | Corrected construction; complete-matrix tests pass. |
-| I008 | Resolved | Linux cross compiler caught conflicting UAPI integer typedefs and printf widths | Use Linux UAPI types and explicit format casts; compile checks repeated. |
-| I009 | Resolved | Initial BPF backend rejected return-valued atomics with default ISA | Explicit BPF v3 target; both programs compile for bpfel. Target verifier/load remains unverified. |
-| I010 | Accepted development limitation | BPF cross-checks use minimal development type headers and declaration-only skeleton headers | They check syntax/target code generation and libbpf APIs; actual target BTF/CO-RE verification and linking must run on Linux. |
-| I011 | Open | Final rebuilt Windows C checkers hit Windows Application Control error4551, including an authorized retry | Final test run explicitly skips these two native executions; 35 other checks pass. Eight compilation checks pass. Earlier native checks passed, but do not substitute for executing the latest rebuilt binaries. No security policy was changed. |
+| I001 | Resolved | Ubuntu 26.04 LTS Linux host inventory and passed privileged smoke in `state/host.json` and `state/evidence/linux-smoke-20261114-001/checks.json` | Linux build and execution are recorded. |
+| I002 | Open | `novelty_review_v3.md`, `novelty_review_v4.md`, and the referenced research ZIP were not present in the supplied context | Do not make a novelty claim based on the missing source-precedence review. |
+| I003 | Resolved | Repository was initialized and has recorded commits | Continue preserving source and immutable run history. |
+| I004 | Resolved | Python environment and locked dependencies are present | Keep using the checked-in lock files. |
+| I005 | Partially resolved | Some DOI/full-text sources were inaccessible during the earlier literature check; verified source metadata and current references are recorded in `latex_report/references.bib` | Keep related-work claims within sources actually checked. |
+| I006 | Resolved for the recorded smoke | `state/evidence/linux-smoke-20261114-001/checks.json` has `passed: true`, `synthetic: false` | The known-count high/low/sentinel checks passed; this does not replace longer race/performance acceptance. |
+| I007 | Resolved | Existing matrix construction tests and the preserved pilot campaign | No effect on reported pilot comparisons. |
+| I008 | Resolved for recorded build | Linux toolchain and BPF build evidence under `state/bootstrap/` and `build/` | Rebuild against each target's BTF and toolchain. |
+| I009 | Resolved for recorded target load | Privileged Linux smoke exercised the actual eBPF programs | Extend testing for all lifecycle races and modes before broad claims. |
+| I010 | Open | Primary pilot has four paired blocks per workload; all 16 attempts carry `external_cpu_above_preregistered_threshold` | Treat pilot intervals as exploratory; budget decision remains inconclusive. |
+| I011 | Open | `data/confirmatory/` and `data/robustness/` have no completed campaign; current pilot policy set is NONE/FIX_Q01 | No adaptive-vs-fixed, drift, robustness, or multi-host empirical conclusion is available from the pilot. |

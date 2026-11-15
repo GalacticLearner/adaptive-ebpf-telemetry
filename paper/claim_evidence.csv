@@ -1,6 +1,9 @@
 claim,status,artifact,run_set,uncertainty,scope
-Primary design:56 cells and672 trials,proposed protocol,configs/protocol.yaml,none,not an observation,default12 blocks
-H1,inconclusive,PROGRESS.md,pending,no empirical support,available validated cells only
-H2,inconclusive,PROGRESS.md,pending,no empirical support,available validated cells only
-H3,inconclusive,PROGRESS.md,pending,no empirical support,available validated cells only
-H4,inconclusive,PROGRESS.md,pending,no empirical support,available validated cells only
+"Linux privileged eBPF known-count smoke passed","measured","state/evidence/linux-smoke-20261114-001/checks.json","linux-smoke-20261114-001","exact counts; no ring/sink drops","full/low/sentinel smoke checks only"
+"FIX_Q01 CPU throughput loss versus NONE","measured","results/pilot/bounded-q01-4blocks-20261114-001/results.json","bounded-q01-4blocks-20261114-001","1.846 percent; 95 percent block-bootstrap interval -0.631 to 5.598 percent; n=4; external CPU noise warning","CPU low background no drift"
+"FIX_Q01 I/O throughput loss versus NONE","measured","results/pilot/bounded-q01-4blocks-20261114-001/results.json","bounded-q01-4blocks-20261114-001","11.208 percent; 95 percent block-bootstrap interval 10.853 to 11.463 percent; n=4; external CPU noise warning","I/O low background no drift"
+"FIX_Q01 incident capture","measured","results/pilot/bounded-q01-4blocks-20261114-001/results.json","bounded-q01-4blocks-20261114-001","CPU 1.169 percent (95 percent interval 1.022 to 1.349); I/O 1.002 percent (0.881 to 1.155)","four paired blocks per workload"
+"On-time alert recall","measured","results/pilot/bounded-q01-4blocks-20261114-001/results.json","bounded-q01-4blocks-20261114-001","zero observed for both workload families; n=4","one short futex incident per trial"
+"5 percent throughput budget decision","inconclusive","results/pilot/bounded-q01-4blocks-20261114-001/results.json","bounded-q01-4blocks-20261114-001","runner marks underpowered below eight blocks; external CPU warnings on all attempts","fixed 1 percent pilot only"
+"Adaptive versus fixed policy advantage","not measured","configs/confirmatory.yaml","none","no adaptive-policy observations in saved pilot","do not claim"
+"Planned primary design: 56 cells and 672 trials","protocol estimate","configs/protocol.yaml","none","design parameter not an observation","12 paired blocks per scenario"

@@ -1,21 +1,24 @@
 {
   "schema_version": 1,
-  "status": "development-checked; target host lock pending",
-  "target": "x86_64-linux, kernel >=6.8 with actual tracing feature/load tests",
+  "status": "recorded Linux target; privileged known-count smoke passed; confirmatory matrix pending",
+  "target": "Ubuntu 26.04 LTS x86_64, kernel 7.0.0-31-generic",
   "bpf_isa": "v3",
-  "target_compiler": "clang-18 (exact distribution package version recorded on target before freeze)",
+  "target_compiler": "Ubuntu clang 18.1.8 (20ubuntu8)",
   "libbpf": {
     "version": "1.5.1",
     "url": "https://github.com/libbpf/libbpf/archive/refs/tags/v1.5.1.tar.gz",
     "sha256": "e5ff89750e48ab5ecdfc02a759aa0dacd1e7980e98e16bdb4bfa8ff0b3b4b98f",
     "license": "LGPL-2.1 OR BSD-2-Clause; preserve upstream license files"
   },
-  "development_compiler": "ziglang==0.13.0 (LLVM C cross compiler, development only)",
-  "development_python": "3.14.8",
+  "development_compiler": "clang-18.1.8 (recorded Linux target)",
+  "development_python": "3.14.4",
   "python_runtime": ">=3.11; exact packages in requirements.lock and requirements-analysis.lock",
-  "actual_target_kernel": null,
-  "actual_bpftool": null,
-  "actual_clang": null,
-  "generated_btf_header_sha256": null,
-  "generated_skeleton_sha256": null
+  "actual_target_kernel": "7.0.0-31-generic",
+  "actual_bpftool": "bpftool v7.7.0 (linked libbpf v1.7)",
+  "actual_clang": "Ubuntu clang 18.1.8 (20ubuntu8)",
+  "generated_btf_header_sha256": "08af97ac9354f71576ddf4994572a7ac818f3327de8a956e2e5d6865bd2eeadc",
+  "generated_skeleton_sha256": {
+    "build/detail.skel.h": "abd119958dcd3c946722b2d38fd37c41c1df4da7edcbb24726f1049a2eb2ab31",
+    "build/sentinel.skel.h": "bbc355df6eda873e8d57834138b36006c99b47374abb26c741417735ecee05b3"
+  }
 }

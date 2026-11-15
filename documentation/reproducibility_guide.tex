@@ -1,0 +1,144 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{listings}
+\usepackage{xcolor}
+\lstset{basicstyle=\ttfamily\small,breaklines=true,frame=single,
+  columns=fullflexible,showstringspaces=false}
+\title{Reproducibility Guide\\Adaptive eBPF Telemetry with an Explicit Overhead Budget}
+\author{Operating Systems Course Submission}
+\date{November 2026}
+\begin{document}
+\maketitle
+
+\section{Overview}
+This project implements Linux kernel telemetry with eBPF. A low-cost scheduler sentinel tracks activity in target tasks while a C/libbpf agent controls detailed syscall sampling. The intended policy retains inexpensive telemetry during healthy periods and increases detail when a calibrated signal indicates an anomaly, subject to a declared 5\% application-throughput-loss budget.
+
+The implementation provides LOW/MEDIUM/HIGH modes, GATE and SWITCH mechanisms, fixed-policy comparisons, CPU and tmpfs-I/O workloads, controlled futex incidents, event/loss accounting, and a Python experiment/analysis harness. Recorded evidence comprises a passing privileged Linux smoke plus calibration and a four-block fixed 1\% pilot. The pilot is not an adaptive-versus-fixed evaluation.
+
+\section{Repository}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Path & Purpose\\
+\midrule
+\texttt{src/bpf/} & CO-RE scheduler and syscall programs\\
+\texttt{src/agent/}, \texttt{src/common/} & libbpf agent, sink, policy, costs, ABI\\
+\texttt{src/workloads/} & CPU/I/O workloads and known-count test\\
+\texttt{runner/}, \texttt{analysis/} & experiment control and metrics/inference\\
+\texttt{configs/}, \texttt{schemas/} & YAML settings and validation schemas\\
+\texttt{data/}, \texttt{results/} & immutable attempts and derived summaries\\
+\texttt{state/} & host/toolchain lock and smoke evidence\\
+\texttt{latex\_report/} & IEEEtran source, figures, bibliography, PDF\\
+\bottomrule
+\end{tabular}
+
+\section{Recorded Host and Software}
+The saved host inventory was captured on 2026-11-14: Ubuntu 26.04 LTS, x86-64, kernel \texttt{7.0.0-31-generic}, 20 logical CPUs, and about 14.5 GiB RAM. The machine CPU inventory identifies a 12th Gen Intel Core i7-12700H. BTF, cgroup v2, scheduler and syscall tracepoints were available. The privileged smoke passed.
+
+\begin{tabular}{@{}ll@{}}
+\toprule
+Tool & Version\\
+\midrule
+Python & 3.14.4\\
+Clang & 18.1.8\\
+GCC/cc & 15.2.0\\
+GNU Make & 4.4.1\\
+bpftool & 7.7.0 (runtime libbpf 1.7)\\
+Agent libbpf & pinned source build 1.5.1\\
+pkg-config & 2.5.1\\
+\bottomrule
+\end{tabular}
+
+Exact Python pins are in \texttt{requirements.lock} and \texttt{requirements-analysis.lock}. The per-host package and tool versions are retained in \texttt{state/bootstrap/}.
+
+\section{Prerequisites and Setup}
+Use an authorized x86-64 Linux host with readable \texttt{/sys/kernel/btf/vmlinux}, cgroup v2, \texttt{sched\_switch}, raw syscall entry/exit tracepoints, ring-buffer support, and permission to load tracing programs. The recorded experiment runs the privileged collector as root.
+
+\begin{lstlisting}
+bash artifact/bootstrap-linux.sh
+sudo .venv/bin/python -m runner doctor --output state/host.json
+PKG_CONFIG_PATH="$PWD/.deps/libbpf-1.5.1/lib/pkgconfig" \
+  make CLANG=clang-18 build
+\end{lstlisting}
+
+The bootstrap installs Ubuntu build packages, verifies the libbpf 1.5.1 archive checksum, creates the Python environment, derives target BTF/skeletons, and compiles binaries. Review it before use because it installs packages through apt. It does not change kernel, boot, or security policy.
+
+\section{Configuration and Smoke}
+YAML configuration includes host/toolchain, workload, incident schedule, sentinel bins, syscall allowlist and sampling probabilities, detector model, controller mechanism/budget, campaign matrix, and statistical endpoints. LOW selects no detailed entries; MEDIUM selects 10\%; HIGH selects all eligible entries. FIX\_Q01 is a separate 1\% policy. Null calibration fields are unresolved and must not be replaced by guesses.
+
+\begin{lstlisting}
+.venv/bin/python tools/configure_host.py \
+  --config configs/calibration.yaml \
+  --output state/calibration-host.yaml --compute-repeats 32
+sudo .venv/bin/python -m runner test --privileged \
+  --config state/calibration-host.yaml \
+  --output state/evidence/linux-smoke-local
+.venv/bin/python -m runner test --unprivileged
+\end{lstlisting}
+
+Use a new output directory; attempt records are immutable. The existing successful smoke is preserved under \texttt{state/evidence/} with run ID \texttt{linux-smoke-20261114-001}. Full selection delivered and wrote 2,000 of 2,000 expected records with zero ring/sink drops. LOW selected zero of 2,000 eligible entries; SENT produced no detail records.
+
+\section{Calibration and Workloads}
+Follow \texttt{artifact/CALIBRATION.md} for rate/storage, perturbation, normal training/validation, context/action cost, attribution, and precision stages. Each acquisition is separate and immutable; normal training and validation are independent, and confirmatory incidents must not tune the detector.
+
+The CPU workload runs two pinned checksum-producing workers. The I/O workload uses explicit \texttt{pread64} calls over a prefaulted 64 MiB tmpfs working set per worker. The protocol supports background load, drift, futex incidents, and an unseen CPU-contention incident. Pilot configuration is \texttt{state/pilot-q01-4blocks-20261114.yaml}:
+
+\begin{lstlisting}
+sudo .venv/bin/python -m runner pilot \
+  --config state/pilot-q01-4blocks-20261114.yaml \
+  --study primary --limit 16 \
+  --output data/pilot/reproduction-q01
+\end{lstlisting}
+
+This command launches collection. Use it only when the output directory does not exist. The saved pilot used low background, no drift, one jittered 10 ms futex incident, four paired blocks per workload, and policies NONE/FIX\_Q01. The full planned primary matrix is 56 cells and 672 trials at 12 blocks; that is an estimate, not the recorded pilot sample size. Resolve calibration and freeze before any full campaign.
+
+\section{Validation and Analysis}
+To regenerate summaries from saved raw pilot data without collecting new events:
+\begin{lstlisting}
+.venv/bin/python -m runner validate \
+  --input data/pilot/bounded-q01-4blocks-20261114-001 \
+  --output state/validation-pilot-rerun.json
+.venv/bin/python -m runner analyze \
+  --input data/pilot/bounded-q01-4blocks-20261114-001 \
+  --output results/pilot-rerun --figures
+.venv/bin/python -m runner report \
+  --input results/pilot-rerun --output paper/pilot-rerun
+\end{lstlisting}
+Each trial directory contains its manifest, resolved configuration, intended schedule, truth, counters, resource samples, validity/noise record, raw trace archive, and seal. Summary files include \texttt{results.json}, \texttt{effects.csv}, \texttt{run\_metrics.json}, and \texttt{validation.json}. Preserve valid noisy trials and failed attempts; do not silently remove them.
+
+\section{Recorded Pilot Results}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Workload & Loss & 95\% interval & Capture & On-time recall\\
+\midrule
+CPU & 1.85\% & [--0.63, 5.60]\% & 1.17\% & 0\%\\
+I/O & 11.21\% & [10.85, 11.46]\% & 1.00\% & 0\%\\
+\bottomrule
+\end{tabular}
+
+Intervals are 10,000-draw whole-block bootstrap intervals from four blocks. All 16 attempts were valid and carried the external-CPU noise warning. The runner classifies the declared 5\% budget as inconclusive because four blocks are below its eight-block decision threshold. Capture, detector recall, throughput loss, and transport loss are distinct metrics. Ring-buffer and sink-drop counts were zero; one in-flight event per workload set was classified abandoned.
+
+\section{Troubleshooting and Notes}
+\begin{itemize}[nosep,leftmargin=*]
+\item Attach/permission errors: run \texttt{doctor}; check root/tracing permissions, target BTF, cgroup v2, and the tracepoint names. Do not relax security policy.
+\item Build errors: use Clang 18 with the BPF backend, regenerate skeletons for the actual kernel, and point pkg-config to the pinned libbpf build.
+\item Existing output directory: select a new path; writes are exclusive to preserve seals.
+\item Noise warning: retain it and report it. A negative result or valid noise warning does not justify an unrecorded retry.
+\item Unresolved model/rate/cost fields: collect the calibration stage and resolve an execution config; never use guessed values.
+\item CPU frequency, thermal state, host load, kernel version, CPU placement, and background processes affect measurements. The harness records host/noise state and does not change scheduler or frequency policy.
+\end{itemize}
+
+\section{Compile the IEEE Report}
+\begin{lstlisting}
+cd latex_report
+python3 generate_figures.py
+pdflatex -interaction=nonstopmode main.tex
+bibtex main
+pdflatex -interaction=nonstopmode main.tex
+pdflatex -interaction=nonstopmode main.tex
+\end{lstlisting}
+The source, bibliography, and generated figures are retained beside the report. The repository does not create the final submission ZIP.
+\end{document}

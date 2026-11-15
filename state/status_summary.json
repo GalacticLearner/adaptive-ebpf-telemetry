@@ -1,16 +1,23 @@
 {
-  "code_status": "host-independent implementation checked; Linux execution and empirical validation pending",
+  "code_status": "Linux build and privileged smoke passed; validated pilot attempts retained; confirmatory matrix pending",
   "gates_passed": 0,
   "gates_total": 10,
+  "pilot_trials": {
+    "noise_flagged": 16,
+    "total": 16,
+    "valid": 16
+  },
   "real_all_registry_trials": {
     "planned": 2188,
+    "scope": "confirmatory registry; pilot excluded",
     "valid": 0
   },
   "real_primary_trials": {
     "planned": 672,
+    "scope": "confirmatory matrix; pilot excluded",
     "valid": 0
   },
-  "research_conclusion": "No empirical hypothesis support or publication-readiness claim",
+  "research_conclusion": "Pilot results are exploratory; adaptive-policy and formal budget conclusions remain inconclusive",
   "steps": {
     "blocked": 44,
     "doing": 0,
