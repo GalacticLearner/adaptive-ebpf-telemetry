@@ -1,3 +1,3 @@
-Platform: Windows 11
-Functional ready: false
-Linux tracing host unavailable; no BPF feature/load/attach evidence
+Kernel:7.0.0-31-generic
+Privileged smoke: not yet passed
+real privileged smoke/count/cleanup tests have not yet passed

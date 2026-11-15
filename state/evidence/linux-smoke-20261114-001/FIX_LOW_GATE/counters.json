@@ -1,0 +1,1 @@
+{"schema_version":1,"eligible":2000,"selected":0,"rejected":2000,"insert_failed":0,"replaced":0,"malformed":0,"exit_without_selected":2000,"completed":0,"reserve_failed":0,"emitted":0,"abandoned":0,"pending":0,"consumed":0,"sink_drop":0,"written":0,"undrained":0,"sink_bytes":32,"sink_flush_ns":0,"sink_error":0,"ledger_ok":true,"stats_enabled":false,"component":0}

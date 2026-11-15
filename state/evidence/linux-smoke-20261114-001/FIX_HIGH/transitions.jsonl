@@ -1,0 +1,3 @@
+{"action":"attach_exit","desired_ns":2861149527478,"action_start_ns":2861149528016,"ack_ns":2861150210508,"mode":0,"generation":1,"attachment_epoch":0,"entry_link":0,"exit_link":5,"forced_abandoned":0}
+{"action":"attach_entry","desired_ns":2861149527478,"action_start_ns":2861150215453,"ack_ns":2861150308694,"mode":0,"generation":1,"attachment_epoch":1,"entry_link":6,"exit_link":5,"forced_abandoned":0}
+{"action":"activate","desired_ns":2861149527478,"action_start_ns":2861149527749,"ack_ns":2861150310194,"mode":2,"generation":2,"attachment_epoch":1,"entry_link":6,"exit_link":5,"forced_abandoned":0}

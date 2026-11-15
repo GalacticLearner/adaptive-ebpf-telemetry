@@ -1,0 +1,4 @@
+monotonic_ns,first_bin,last_bin,count,score,gap,requested,allowed,applied,draining,threshold,generation,prediction,rate,utilization,alert,alert_started,dwell_deferred,budget_override,budget_infeasible,fallback,controller_cpu_ns,transition_cost_unresolved,eligible,selected,completed,reserve_failed,emitted,consumed,sink_drop,entry_attached,exit_attached
+2861151320579,572231,572230,0,0,0,0,2,2,0,4294967295,2,nan,nan,nan,0,0,1,0,0,0,57474,0,1059,1059,1058,0,1058,950,0,1,1
+2861251541697,572231,572247,0,0,0,0,2,2,0,4294967295,2,nan,0,0,0,0,1,0,0,0,325692,0,2000,2000,2000,0,2000,2000,0,1,1
+2861351577175,572248,572267,0,0,0,0,2,2,0,4294967295,2,nan,0,0.05,0,0,1,0,0,0,506108,0,2000,2000,2000,0,2000,2000,0,1,1
